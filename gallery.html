@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Photo Gallery — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem; margin-top:2rem;
+}
+.g-item { position:relative; overflow:hidden; border-radius:var(--radius); cursor:pointer; }
+.g-item.tall { grid-row:span 2; }
+.g-item.wide { grid-column:span 2; }
+.g-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease; min-height:200px; }
+.g-item.tall img { min-height:420px; }
+.g-item.wide img { min-height:220px; }
+.g-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(10,35,66,0.85) 0%,rgba(10,35,66,0.2) 50%,transparent 100%);
+  opacity:0; transition:opacity 0.35s; display:flex; flex-direction:column; justify-content:flex-end; padding:1.5rem;
+}
+.g-item:hover img { transform:scale(1.06); }
+.g-item:hover .g-overlay { opacity:1; }
+.g-label { color:white; font-weight:700; font-size:0.95rem; margin-bottom:3px; }
+.g-sublabel { color:rgba(255,255,255,0.65); font-size:0.8rem; }
+
+/* LIGHTBOX */
+.lightbox { display:none; position:fixed; inset:0; background:rgba(5,15,30,0.96); z-index:9999; align-items:center; justify-content:center; }
+.lightbox.open { display:flex; }
+.lightbox img { max-width:90vw; max-height:88vh; border-radius:var(--radius); box-shadow:0 20px 80px rgba(0,0,0,0.6); object-fit:contain; }
+.lightbox-close {
+  position:absolute; top:1.5rem; right:1.5rem;
+  background:rgba(255,255,255,0.12); border:none; color:white;
+  width:44px; height:44px; border-radius:50%; font-size:1.4rem; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; transition:background 0.2s;
+}
+.lightbox-close:hover { background:rgba(255,255,255,0.22); }
+.lightbox-caption { position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); color:white; font-size:0.9rem; font-weight:600; text-align:center; }
+
+@media(max-width:900px){
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .g-item.wide,.g-item.tall { grid-column:span 1; grid-row:span 1; }
+}
+@media(max-width:600px){
+  .gallery-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a><a href="gallery.html" class="active">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Life at KHCC Pulmonary</div>
+    <h1>Photo <em>Gallery</em></h1>
+    <p>A glimpse into our clinical training environment, our team, and the academic culture that defines life at KHCC Pulmonary Medicine.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Photo Gallery</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Our World</div>
+      <h2 class="section-title">Life at KHCC Pulmonary</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Click any photo to view it in full. From our state-of-the-art facility to our team of dedicated clinicians, these images capture the spirit of our fellowship.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="g-item tall" onclick="openLight('1000397984.jpg','King Hussein Cancer Center, Amman')">
+        <img src="1000397984.jpg" alt="KHCC Building">
+        <div class="g-overlay"><div class="g-label">King Hussein Cancer Center</div><div class="g-sublabel">Amman, Jordan</div></div>
+      </div>
+      <div class="g-item" onclick="openLight('1000397985.jpg','Faculty Consultant, KHCC Pulmonary')">
+        <img src="1000397985.jpg" alt="Faculty">
+        <div class="g-overlay"><div class="g-label">Faculty Team</div><div class="g-sublabel">KHCC Pulmonary Medicine</div></div>
+      </div>
+      <div class="g-item" onclick="openLight('1000397986.jpg','Dr. Mousa, Pulmonary Fellow')">
+        <img src="1000397986.jpg" alt="Dr. Mousa">
+        <div class="g-overlay"><div class="g-label">Dr. Mousa</div><div class="g-sublabel">Pulmonary Fellow · Year 2</div></div>
+      </div>
+      <div class="g-item wide" onclick="openLight('1000397993.jpg','Dr. Naser Mahmoud, Program Director')">
+        <img src="1000397993.jpg" alt="Program Director">
+        <div class="g-overlay"><div class="g-label">Dr. Naser Mahmoud</div><div class="g-sublabel">Program Director · KHCC Pulmonary</div></div>
+      </div>
+      <div class="g-item" onclick="openLight('1000397987.jpg','Pulmonary Fellow, KHCC')">
+        <img src="1000397987.jpg" alt="Fellow">
+        <div class="g-overlay"><div class="g-label">Our Fellows</div><div class="g-sublabel">KHCC Pulmonary Fellowship</div></div>
+      </div>
+      <div class="g-item" onclick="openLight('1000397988.jpg','Pulmonary Fellow, KHCC')">
+        <img src="1000397988.jpg" alt="Fellow">
+        <div class="g-overlay"><div class="g-label">Team Collaboration</div><div class="g-sublabel">KHCC Pulmonary Medicine</div></div>
+      </div>
+      <div class="g-item" onclick="openLight('1000397989.jpg','Dr. Abdallah Asha, Chief Fellow')">
+        <img src="1000397989.jpg" alt="Chief Fellow">
+        <div class="g-overlay"><div class="g-label">Dr. Abdallah Asha</div><div class="g-sublabel">Chief Fellow · KHCC</div></div>
+      </div>
+      <div class="g-item tall" onclick="openLight('1000397990.jpg','Dr. Anas Al-Khatib, Faculty Consultant')">
+        <img src="1000397990.jpg" alt="Faculty">
+        <div class="g-overlay"><div class="g-label">Dr. Anas Al-Khatib</div><div class="g-sublabel">Faculty Consultant · KHCC</div></div>
+      </div>
+      <div class="g-item" onclick="openLight('1000397991.jpg','Faculty Consultant, KHCC')">
+        <img src="1000397991.jpg" alt="Faculty">
+        <div class="g-overlay"><div class="g-label">Faculty Consultant</div><div class="g-sublabel">Pulmonary Medicine</div></div>
+      </div>
+      <div class="g-item wide" onclick="openLight('1000397992.jpg','Dr. Mohammad Al-Jaghbeer, GME Director')">
+        <img src="1000397992.jpg" alt="GME Director">
+        <div class="g-overlay"><div class="g-label">Dr. Mohammad Al-Jaghbeer</div><div class="g-sublabel">GME Director · Critical Care & Pulmonology</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLight(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, Amman, Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a></div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+<script>
+function openLight(src, caption) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-caption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLight(e) { if(e.target === document.getElementById('lightbox')) closeLightbox(); }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact & Apply — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-layout { display:grid; grid-template-columns:1fr 1.1fr; gap:3.5rem; margin-top:3rem; align-items:start; }
+.contact-info-card { background:var(--navy); border-radius:var(--radius-lg); padding:2.5rem; }
+.contact-info-card h3 { font-family:'Playfair Display',serif; color:white; font-size:1.3rem; margin-bottom:0.5rem; }
+.contact-info-card .subtitle { color:rgba(255,255,255,0.6); font-size:0.9rem; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:1px solid rgba(255,255,255,0.1); }
+.c-item { display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.5rem; }
+.c-icon { font-size:1.4rem; flex-shrink:0; margin-top:2px; }
+.c-text h4 { color:white; font-weight:700; font-size:0.92rem; margin-bottom:3px; }
+.c-text p { color:rgba(255,255,255,0.6); font-size:0.87rem; line-height:1.6; }
+.c-text a { color:rgba(255,255,255,0.6); text-decoration:none; }
+.c-text a:hover { color:white; }
+.contact-logo { margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1); }
+.contact-logo img { height:80px; }
+
+.form-card { background:white; border-radius:var(--radius-lg); padding:2.5rem; box-shadow:var(--shadow-md); }
+.form-card h3 { font-family:'Playfair Display',serif; color:var(--navy); font-size:1.3rem; margin-bottom:0.4rem; }
+.form-card .subtitle { color:var(--gray-600); font-size:0.88rem; margin-bottom:2rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-group { margin-bottom:1.1rem; }
+.form-group label { display:block; font-size:0.82rem; font-weight:700; color:var(--navy); margin-bottom:5px; }
+.form-group input, .form-group select, .form-group textarea {
+  width:100%; padding:10px 14px; border:1.5px solid var(--gray-200); border-radius:9px;
+  font-family:'Source Sans 3',sans-serif; font-size:0.9rem; color:var(--gray-800);
+  background:var(--gray-50); outline:none; transition:border 0.2s,background 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color:var(--blue); background:white;
+}
+.form-group textarea { min-height:120px; resize:vertical; }
+.form-submit {
+  width:100%; background:var(--navy); color:white; border:none;
+  padding:14px; border-radius:9px; font-family:'Source Sans 3',sans-serif;
+  font-size:0.97rem; font-weight:700; cursor:pointer; transition:all 0.25s;
+  margin-top:0.5rem;
+}
+.form-submit:hover { background:var(--blue); transform:translateY(-1px); }
+.form-note { font-size:0.78rem; color:var(--gray-400); margin-top:0.75rem; text-align:center; }
+
+.apply-steps { margin-top:3.5rem; }
+.apply-steps h3 { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--navy); margin-bottom:2rem; }
+.steps-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.25rem; }
+.step-card { background:white; border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-sm); position:relative; }
+.step-num { width:36px; height:36px; border-radius:50%; background:var(--navy); color:white; font-weight:700; font-size:0.9rem; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+.step-title { font-weight:700; color:var(--navy); margin-bottom:0.35rem; font-size:0.95rem; }
+.step-desc { font-size:0.86rem; color:var(--gray-600); line-height:1.65; }
+
+@media(max-width:900px){ .contact-layout{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Get In Touch</div>
+    <h1>Contact Us &amp; <em>Apply</em></h1>
+    <p>Interested in joining Jordan's premier pulmonary medicine fellowship? We welcome inquiries from qualified internal medicine physicians committed to excellence in respiratory care.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Contact & Apply</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Reach Us</div>
+      <h2 class="section-title">Contact &amp; Fellowship Inquiry</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="contact-layout">
+      <!-- INFO -->
+      <div class="contact-info-card reveal">
+        <h3>Program Information</h3>
+        <p class="subtitle">We are happy to answer any questions about the program, application process, or life at KHCC.</p>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
+          <div class="c-text">
+            <h4>Address</h4>
+            <p>King Hussein Cancer Center<br>Queen Rania Al-Abdullah Street<br>Al-Jubeiha, Amman 11941, Jordan</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📧</div>
+          <div class="c-text">
+            <h4>Email</h4>
+            <p><a href="mailto:pulmonary.fellowship@khcc.jo">pulmonary.fellowship@khcc.jo</a></p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">🌐</div>
+          <div class="c-text">
+            <h4>Institution Website</h4>
+            <p><a href="https://www.khcc.jo" target="_blank">www.khcc.jo</a></p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📅</div>
+          <div class="c-text">
+            <h4>Academic Year</h4>
+            <p>July 1 – June 30<br>Applications reviewed on a rolling basis</p>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">👨‍⚕️</div>
+          <div class="c-text">
+            <h4>Program Director</h4>
+            <p>Dr. Naser Mahmoud<br>Pulmonary Medicine, KHCC</p>
+          </div>
+        </div>
+        <div class="contact-logo">
+          <img src="1000397994.png" alt="KHCC Pulmonary Fellowship Logo" onerror="this.style.display='none'">
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-card reveal delay-2">
+        <h3>Fellowship Inquiry Form</h3>
+        <p class="subtitle">Fill out the form below and our team will get back to you promptly.</p>
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" placeholder="Ahmad"></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" placeholder="Al-Rashidi"></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+962 79 000 0000"></div>
+        <div class="form-group"><label>Current Position / Specialty</label><input type="text" placeholder="e.g., Internal Medicine Resident, PGY-3"></div>
+        <div class="form-group"><label>Current Institution</label><input type="text" placeholder="e.g., Jordan University Hospital"></div>
+        <div class="form-group">
+          <label>Inquiry Type *</label>
+          <select>
+            <option value="">— Select —</option>
+            <option>Fellowship Application</option>
+            <option>Program Information / Curriculum</option>
+            <option>Rotation / Elective Inquiry</option>
+            <option>Research Collaboration</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message *</label><textarea placeholder="Tell us about yourself, your clinical background, your interest in pulmonary medicine, and any specific questions you have about our program..."></textarea></div>
+        <button class="form-submit">Send Inquiry →</button>
+        <p class="form-note">We typically respond within 2–3 business days. All inquiries are welcomed.</p>
+      </div>
+    </div>
+
+    <!-- APPLICATION STEPS -->
+    <div class="apply-steps reveal">
+      <div class="section-label">How to Apply</div>
+      <h3>Application Process</h3>
+      <div class="steps-grid">
+        <div class="step-card reveal delay-1">
+          <div class="step-num">1</div>
+          <div class="step-title">Check Eligibility</div>
+          <div class="step-desc">Candidates must hold an MD degree and have completed at least 3 years of Internal Medicine residency training at an accredited institution.</div>
+        </div>
+        <div class="step-card reveal delay-2">
+          <div class="step-num">2</div>
+          <div class="step-title">Prepare Documents</div>
+          <div class="step-desc">Gather your CV, medical degree and residency certificates, board exam scores, 3 letters of recommendation, and a personal statement.</div>
+        </div>
+        <div class="step-card reveal delay-3">
+          <div class="step-num">3</div>
+          <div class="step-title">Submit Inquiry</div>
+          <div class="step-desc">Complete the inquiry form above or email directly to the program. Our team will guide you through the next steps and provide the official application link.</div>
+        </div>
+        <div class="step-card reveal delay-1">
+          <div class="step-num">4</div>
+          <div class="step-title">Interview</div>
+          <div class="step-desc">Shortlisted candidates are invited for an in-person or virtual interview with the Program Director and faculty committee.</div>
+        </div>
+        <div class="step-card reveal delay-2">
+          <div class="step-num">5</div>
+          <div class="step-title">Decision &amp; Offer</div>
+          <div class="step-desc">Accepted candidates receive a formal offer letter. The fellowship start date is July 1 of each academic year.</div>
+        </div>
+        <div class="step-card reveal delay-3">
+          <div class="step-num">6</div>
+          <div class="step-title">Join Our Program</div>
+          <div class="step-desc">Begin your journey at KHCC with an 8-week Pulmonary Service orientation alongside your co-fellows and faculty mentors.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, Amman, Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:pulmonary.fellowship@khcc.jo">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a></div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

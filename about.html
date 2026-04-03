@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>About the Program — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.leader-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2rem; margin-top:3rem; }
+.leader-card { background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); transition:all 0.3s; }
+.leader-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.leader-top { background:linear-gradient(135deg,var(--navy),var(--blue)); padding:2.2rem; text-align:center; }
+.leader-photo { width:120px; height:120px; border-radius:50%; object-fit:cover; object-position:top; border:4px solid rgba(255,255,255,0.28); margin:0 auto 1.1rem; display:block; }
+.leader-name { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:white; margin-bottom:3px; }
+.leader-role { font-size:0.78rem; color:rgba(255,255,255,0.62); font-weight:500; letter-spacing:0.05em; }
+.leader-body { padding:1.8rem; }
+.leader-body p { font-size:0.93rem; color:var(--gray-600); line-height:1.82; }
+.leader-quote { border-left:3px solid var(--blue); padding-left:1rem; margin-bottom:1rem; font-style:italic; }
+
+.mission-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.25rem; margin-top:2rem; }
+.mission-card { background:white; border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); border-top:4px solid var(--blue); }
+.mission-icon { font-size:2rem; margin-bottom:0.75rem; }
+.mission-title { font-weight:700; font-size:1rem; color:var(--navy); margin-bottom:0.4rem; }
+.mission-desc { font-size:0.87rem; color:var(--gray-600); line-height:1.65; }
+
+.khcc-banner { background:var(--navy); padding:60px 2rem; margin-top:0; }
+.khcc-banner-inner { max-width:1140px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+.khcc-banner h2 { font-family:'Playfair Display',serif; font-size:1.9rem; color:white; margin-bottom:1rem; }
+.khcc-banner p { color:rgba(255,255,255,0.7); font-size:0.97rem; line-height:1.8; margin-bottom:1rem; font-weight:300; }
+.khcc-banner-img { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lg); }
+.khcc-banner-img img { width:100%; height:300px; object-fit:cover; display:block; }
+@media(max-width:800px){ .khcc-banner-inner{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a>
+    <a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">About the Program</div>
+    <h1>Leadership &amp; <em>Welcome</em></h1>
+    <p>Guided by distinguished clinician-educators committed to advancing respiratory medicine across Jordan and the wider region.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">About the Program</span></div>
+
+<!-- LEADERSHIP -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Program Leadership</div>
+      <h2 class="section-title">A Message From Our Team</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Our program is shaped by a team of passionate educators whose shared goal is to produce outstanding pulmonologists for Jordan and the region.</p>
+    </div>
+    <div class="leader-grid">
+      <div class="leader-card reveal delay-1">
+        <div class="leader-top">
+          <img src="1000397993.jpg" alt="Dr. Naser Mahmoud" class="leader-photo" onerror="this.style.background='rgba(255,255,255,0.2)'">
+          <div class="leader-name">Dr. Naser Mahmoud</div>
+          <div class="leader-role">Program Director · Pulmonary Medicine</div>
+        </div>
+        <div class="leader-body">
+          <p class="leader-quote">"Our mission is to cultivate the next generation of exceptional pulmonologists who are clinically masterful, academically rigorous, and compassionate in their care."</p>
+          <p>Welcome to the KHCC Pulmonary Medicine Fellowship Program. Our program is built on a foundation of clinical excellence, rigorous academic standards, and hands-on procedural mastery. At KHCC, fellows are immersed in a rich environment where complex lung disease, interventional pulmonology, and critical care converge. We are committed to training physicians who are not only technically skilled but who embody the values of humanism and leadership in respiratory medicine across the region. I am proud to lead a program that places fellows at the very heart of our mission, and I look forward to welcoming the next class of dedicated physicians.</p>
+        </div>
+      </div>
+      <div class="leader-card reveal delay-2">
+        <div class="leader-top">
+          <img src="1000397992.jpg" alt="Dr. Mohammad Al-Jaghbeer" class="leader-photo" onerror="this.style.background='rgba(255,255,255,0.2)'">
+          <div class="leader-name">Dr. Mohammad Al-Jaghbeer</div>
+          <div class="leader-role">GME Director · Critical Care &amp; Pulmonology</div>
+        </div>
+        <div class="leader-body">
+          <p class="leader-quote">"Graduate medical education at KHCC is held to the highest international standards, because our patients and our trainees deserve nothing less."</p>
+          <p>Graduate medical education at KHCC is shaped by a commitment to international standards and institutional excellence. Our fellowship integrates structured didactic learning, multidisciplinary collaboration, and evidence-based clinical practice. Through meaningful partnerships with Thoracic Surgery, Radiology, Pathology, Rheumatology, and Sleep Medicine, we ensure each fellow receives a truly comprehensive training experience. Institutional support, mentorship, and a culture of continuous learning are the pillars that define GME at KHCC. We are proud to stand alongside Jordan University Hospital in shaping the next era of respiratory medicine education in this region.</p>
+        </div>
+      </div>
+      <div class="leader-card reveal delay-3">
+        <div class="leader-top">
+          <img src="1000397989.jpg" alt="Dr. Abdallah Asha" class="leader-photo" onerror="this.style.background='rgba(255,255,255,0.2)'">
+          <div class="leader-name">Dr. Abdallah Asha</div>
+          <div class="leader-role">Chief Fellow · Pulmonary Medicine</div>
+        </div>
+        <div class="leader-body">
+          <p class="leader-quote">"From day one, you are part of a team — scrubbing in on bronchoscopies, managing complex ICU patients, and building lifelong friendships with your co-fellows."</p>
+          <p>As a fellow at KHCC, you will find yourself in one of the most supportive and academically stimulating environments in the region. From day one, you are part of a close-knit team performing advanced bronchoscopies, managing complex ICU cases, and participating in weekly academic conferences that genuinely sharpen your mind. The procedural exposure here is unparalleled — EBUS, thoracoscopy, POCUS, right heart catheterization — and the mentorship from our faculty is genuine, accessible, and invested in your growth. I can say with full confidence: choosing KHCC for your fellowship is a decision you will never regret.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Our Foundation</div>
+      <h2 class="section-title">Mission, Vision &amp; Values</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card reveal delay-1">
+        <div class="mission-icon">🎯</div>
+        <div class="mission-title">Clinical Excellence</div>
+        <div class="mission-desc">Training fellows to manage the full spectrum of pulmonary disease with confidence, precision, and compassion in every patient encounter.</div>
+      </div>
+      <div class="mission-card reveal delay-2" style="border-top-color:var(--crimson);">
+        <div class="mission-icon">📚</div>
+        <div class="mission-title">Academic Rigor</div>
+        <div class="mission-desc">A structured curriculum of core lectures, journal clubs, board reviews, and guidelines sessions ensuring evidence-based practice at every level.</div>
+      </div>
+      <div class="mission-card reveal delay-3" style="border-top-color:var(--gold);">
+        <div class="mission-icon">🔭</div>
+        <div class="mission-title">Procedural Mastery</div>
+        <div class="mission-desc">Hands-on training in the full range of interventional pulmonology procedures, from diagnostic bronchoscopy to EBUS, thoracoscopy, and beyond.</div>
+      </div>
+      <div class="mission-card reveal delay-1" style="border-top-color:#00838f;">
+        <div class="mission-icon">🤝</div>
+        <div class="mission-title">Multidisciplinary Care</div>
+        <div class="mission-desc">Deep collaboration with thoracic surgery, radiology, pathology, rheumatology, oncology, and ICU teams preparing fellows for real-world integrated practice.</div>
+      </div>
+      <div class="mission-card reveal delay-2" style="border-top-color:#6a1b9a;">
+        <div class="mission-icon">🔬</div>
+        <div class="mission-title">Research Culture</div>
+        <div class="mission-desc">Dedicated research blocks, mentored projects, and a requirement for at least one completed study before graduation — building physician-scientists.</div>
+      </div>
+      <div class="mission-card reveal delay-3" style="border-top-color:#2e7d32;">
+        <div class="mission-icon">🌍</div>
+        <div class="mission-title">Regional Leadership</div>
+        <div class="mission-desc">Producing pulmonologists who will lead respiratory care in Jordan and across the Middle East, setting new standards for the specialty in the region.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KHCC BANNER -->
+<div class="khcc-banner">
+  <div class="khcc-banner-inner">
+    <div class="reveal">
+      <h2>About King Hussein Cancer Center</h2>
+      <p>King Hussein Cancer Center (KHCC) is the only cancer center in Jordan and one of the most advanced in the Middle East, accredited by the Joint Commission International (JCI). Located in Amman, KHCC combines cutting-edge clinical care with a deep commitment to research and medical education.</p>
+      <p>For pulmonary fellows, KHCC offers a uniquely rich training ground — a high volume of complex thoracic malignancies, advanced lung disease, and a culture of multidisciplinary excellence that is unmatched in the region.</p>
+      <a href="contact.html" class="btn btn-primary">Apply to the Program →</a>
+    </div>
+    <div class="khcc-banner-img reveal delay-2">
+      <img src="1000397984.jpg" alt="KHCC Exterior" onerror="this.parentElement.style.background='var(--blue)'">
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, training the next generation of respiratory physicians in Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links">
+        <a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

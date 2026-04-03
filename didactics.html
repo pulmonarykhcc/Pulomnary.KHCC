@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Didactics & Academics — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.freq-tabs { display:flex; gap:0.6rem; margin-bottom:2.5rem; flex-wrap:wrap; }
+.freq-tab { padding:10px 24px; border-radius:9px; border:2px solid var(--gray-200); background:white; color:var(--gray-600); font-weight:700; font-size:0.88rem; cursor:pointer; transition:all 0.2s; font-family:'Source Sans 3',sans-serif; }
+.freq-tab.active { background:var(--navy); border-color:var(--navy); color:white; }
+.freq-panel { display:none; }
+.freq-panel.active { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:1.25rem; }
+
+.act-card { background:white; border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); transition:all 0.25s; position:relative; overflow:hidden; }
+.act-card::before { content:''; position:absolute; top:0; left:0; bottom:0; width:4px; }
+.act-card.blue::before { background:var(--blue); }
+.act-card.red::before { background:var(--crimson); }
+.act-card.gold::before { background:var(--gold); }
+.act-card.teal::before { background:#00838f; }
+.act-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+.act-icon { font-size:2rem; margin-bottom:0.75rem; }
+.act-title { font-weight:700; font-size:1rem; color:var(--navy); margin-bottom:0.3rem; }
+.act-time { font-size:0.8rem; color:var(--blue); font-weight:600; margin-bottom:0.6rem; display:flex; align-items:center; gap:5px; }
+.act-time.red { color:var(--crimson); }
+.act-time.gold { color:#e65100; }
+.act-desc { font-size:0.88rem; color:var(--gray-600); line-height:1.7; }
+
+/* COMBINED CONFERENCE TABLE */
+.conf-table { width:100%; border-collapse:collapse; background:white; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); margin-top:1.5rem; }
+.conf-table th { background:var(--navy); color:white; padding:11px 16px; font-size:0.8rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; text-align:left; }
+.conf-table td { padding:11px 16px; border-bottom:1px solid var(--gray-100); font-size:0.9rem; }
+.conf-table tr:last-child td { border:none; }
+.conf-table tr:hover td { background:var(--blue-pale); }
+
+/* LECTURE TOPICS GRID */
+.topic-section { margin-top:2.5rem; }
+.topic-section h3 { font-family:'Playfair Display',serif; color:var(--navy); font-size:1.2rem; margin-bottom:1.25rem; padding-bottom:0.6rem; border-bottom:2px solid var(--gray-100); display:flex; align-items:center; gap:0.5rem; }
+.topic-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.65rem; margin-bottom:2rem; }
+.topic-pill { background:white; border:1.5px solid var(--gray-200); color:var(--gray-700); padding:8px 14px; border-radius:8px; font-size:0.84rem; font-weight:500; transition:all 0.2s; cursor:default; }
+.topic-pill:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-pale); }
+
+.schedule-banner { background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:var(--radius-lg); padding:2.5rem; margin-top:3rem; display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; }
+.schedule-banner h3 { font-family:'Playfair Display',serif; color:white; font-size:1.4rem; margin-bottom:0.5rem; }
+.schedule-banner p { color:rgba(255,255,255,0.7); font-size:0.93rem; }
+@media(max-width:600px){ .schedule-banner{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html" class="active">Didactics</a>
+    <a href="interventions.html">Interventions</a><a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Academic Program</div>
+    <h1>Didactics &amp; <em>Academic Activities</em></h1>
+    <p>A rich, structured academic curriculum combining weekly conferences, monthly combined activities, simulation-based training, and comprehensive lecture series.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Didactics & Academics</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Structured Learning</div>
+      <h2 class="section-title">Academic Activities</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Our academic calendar is carefully designed to ensure comprehensive coverage of pulmonary medicine through multiple complementary formats — from bedside teaching to simulation labs.</p>
+    </div>
+
+    <div class="freq-tabs reveal" style="margin-top:2.5rem;">
+      <button class="freq-tab active" onclick="switchTab(event,'weekly')">📅 Weekly Activities</button>
+      <button class="freq-tab" onclick="switchTab(event,'monthly')">📆 Monthly &amp; Special</button>
+      <button class="freq-tab" onclick="switchTab(event,'combined')">🤝 Combined Conferences</button>
+      <button class="freq-tab" onclick="switchTab(event,'topics')">📚 Lecture Topics</button>
+    </div>
+
+    <!-- WEEKLY -->
+    <div class="freq-panel active" id="panel-weekly">
+      <div class="act-card blue reveal delay-1">
+        <div class="act-icon">🎓</div>
+        <div class="act-title">Core Lectures</div>
+        <div class="act-time">📅 Every Thursday · 8:00 – 9:00 AM</div>
+        <div class="act-desc">Structured didactic lectures covering the full breadth of pulmonary medicine. Presented by attending consultants or senior fellows. Topics follow the annual didactic schedule with dedicated faculty supervision.</div>
+      </div>
+      <div class="act-card red reveal delay-2">
+        <div class="act-icon">🩺</div>
+        <div class="act-title">Chest Conference / Case Conference</div>
+        <div class="act-time red">📅 Every Wednesday · 1:00 – 2:00 PM</div>
+        <div class="act-desc">Weekly case-based conference where fellows and faculty bring challenging, interesting, or educational cases from the past week for group discussion, differential diagnosis, and learning.</div>
+      </div>
+      <div class="act-card gold reveal delay-3">
+        <div class="act-icon">🏥</div>
+        <div class="act-title">ICU Multidisciplinary Activity</div>
+        <div class="act-time gold">📅 Every Wednesday · 8:00 – 9:00 AM</div>
+        <div class="act-desc">Combined critical care educational activity with Pharmacy, Nursing, Respiratory Therapy, and allied health teams. Topics selected to avoid overlap with other sessions, emphasizing team-based critical care.</div>
+      </div>
+      <div class="act-card teal reveal delay-1">
+        <div class="act-icon">🏫</div>
+        <div class="act-title">JUH Activity</div>
+        <div class="act-time" style="color:#00838f;">📅 Every Tuesday (except 4th) · 8:00 – 9:00 AM</div>
+        <div class="act-desc">Weekly academic collaboration with Jordan University Hospital. The 4th Tuesday of each month is reserved for Journal Club or Case Presentation instead.</div>
+      </div>
+      <div class="act-card blue reveal delay-2">
+        <div class="act-icon">💻</div>
+        <div class="act-title">Lung Multidisciplinary Conference (MDC)</div>
+        <div class="act-time">📅 Every Wednesday · 2:00 – 3:00 PM · via Zoom</div>
+        <div class="act-desc">Virtual lung tumor board and multidisciplinary conference uniting pulmonology, thoracic oncology, radiology, and thoracic surgery teams for complex case discussion and treatment planning.</div>
+      </div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div class="freq-panel" id="panel-monthly">
+      <div class="act-card blue reveal delay-1">
+        <div class="act-icon">📝</div>
+        <div class="act-title">SEEK Board Review &amp; OSCE</div>
+        <div class="act-time">📆 Last Sunday of each month · 8:00 AM</div>
+        <div class="act-desc">Monthly board-style review focusing on a specific pulmonary topic, paired with an OSCE-style assessment. Supervised by Dr. Naser Mahmoud. Designed to prepare fellows for board examinations while reinforcing clinical knowledge.</div>
+      </div>
+      <div class="act-card gold reveal delay-2">
+        <div class="act-icon">🗂️</div>
+        <div class="act-title">Flea Market</div>
+        <div class="act-time gold">📆 Quarterly · 1st Monday of Sep, Dec, Mar, Jun · 8–9 AM</div>
+        <div class="act-desc">Quarterly review of interesting and educational ABGs, CT scans, CXRs, polysomnograms, PFTs, and bronchoscopy findings. Presented by a fellow for group analysis and learning. A favorite among trainees.</div>
+      </div>
+      <div class="act-card red reveal delay-3">
+        <div class="act-icon">📖</div>
+        <div class="act-title">Journal Club / Case Presentations</div>
+        <div class="act-time red">📆 4th Tuesday · Alternating months (Sep, Nov, Jan, Mar, May, Jul) · 8–9 AM</div>
+        <div class="act-desc">Alternating monthly format — one month is dedicated to journal club (critical appraisal of recent literature), the next to case presentations. Led by a fellow, supervised by a consultant.</div>
+      </div>
+      <div class="act-card teal reveal delay-1">
+        <div class="act-icon">📋</div>
+        <div class="act-title">Guidelines Review</div>
+        <div class="act-time" style="color:#00838f;">📆 Every 2 months · 1st or 2nd Thursday · 8–9 AM</div>
+        <div class="act-desc">Systematic review and summarization of the latest international pulmonary guidelines — GINA, GOLD, IDSA, ATS, and others. Presented by a fellow and supervised by a consultant faculty member.</div>
+      </div>
+      <div class="act-card blue reveal delay-2">
+        <div class="act-icon">🎯</div>
+        <div class="act-title">Lung POCUS &amp; Simulation</div>
+        <div class="act-time">📆 Bi-monthly · Mondays · 8:00 – 9:00 AM · Supervised by Dr. Naser</div>
+        <div class="act-desc">Hands-on simulation sessions covering POCUS, endotracheal intubation, inhalational challenge (PFT), diagnostic and therapeutic bronchoscopy, chest tube placement, percutaneous tracheostomy, ECMO, EBUS, CPET, sleep studies, and other clinical scenarios.</div>
+      </div>
+    </div>
+
+    <!-- COMBINED CONFERENCES -->
+    <div class="freq-panel" id="panel-combined">
+      <div style="grid-column:1/-1;">
+        <div class="act-card blue reveal" style="margin-bottom:1.5rem;">
+          <div class="act-icon">🤝</div>
+          <div class="act-title">Monthly Combined Conferences</div>
+          <div class="act-time">📆 Last Thursday of each month · 2:00 – 4:00 PM</div>
+          <div class="act-desc">A rotating series of multidisciplinary conferences in collaboration with KHCC departments and external institutions. Each conference brings a different specialty perspective to pulmonary medicine. Two additional slots are available for annual conferences (CPC, Sleep, ID, IP, Bronchoscopy, or outside consultants).</div>
+        </div>
+        <table class="conf-table reveal">
+          <thead><tr><th>Month</th><th>Conference Topic</th><th>Collaborating Specialty</th></tr></thead>
+          <tbody>
+            <tr><td><strong>July</strong></td><td>Pulmonary Hypertension</td><td>Cardiology / Right Heart Catheterization</td></tr>
+            <tr><td><strong>August</strong></td><td>Infectious Disease</td><td>ID / Pulmonary Infections</td></tr>
+            <tr><td><strong>September</strong></td><td>Thoracic Radiology</td><td>KHCC Radiologists · CT / CXR</td></tr>
+            <tr><td><strong>October</strong></td><td>Nuclear Medicine</td><td>PET-CT, V/Q Scanning</td></tr>
+            <tr><td><strong>November</strong></td><td>Pathology</td><td>Lung Pathologist · Semi-annual</td></tr>
+            <tr><td><strong>December</strong></td><td>Thoracic Surgery</td><td>Thoracic Surgery Team</td></tr>
+            <tr><td><strong>January</strong></td><td>Infectious Disease</td><td>ID / Immunocompromised Hosts</td></tr>
+            <tr><td><strong>February</strong></td><td>Rheumatology</td><td>ILD-CTD / Vasculitis / PR Syndrome</td></tr>
+            <tr><td><strong>March</strong></td><td>Radiology</td><td>Advanced Chest Imaging</td></tr>
+            <tr><td><strong>April</strong></td><td>Rheumatology</td><td>ILD-CTD / Alveolar Hemorrhage</td></tr>
+            <tr><td><strong>May</strong></td><td>Pathology</td><td>Neoplastic Lung Disease · Semi-annual</td></tr>
+            <tr><td><strong>June</strong></td><td>CPC (Clinicopathological Conference)</td><td>Multidisciplinary Annual CPC</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TOPICS -->
+    <div class="freq-panel" id="panel-topics">
+      <div style="grid-column:1/-1;">
+        <div class="topic-section reveal">
+          <h3>🔭 Bronchoscopy &amp; Interventional Pulmonology</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Introduction to Bronchoscopy</div><div class="topic-pill">Advanced IP</div>
+            <div class="topic-pill">Thoracoscopy</div><div class="topic-pill">Advanced Bronchoscopy</div>
+            <div class="topic-pill">Advanced Airway Management (Stents)</div><div class="topic-pill">CT-Bronch Correlation</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>🌬️ Mechanical Ventilation &amp; Airways</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">O2 Delivery Devices</div><div class="topic-pill">NIV (CPAP/BiPAP)</div>
+            <div class="topic-pill">Advanced Ventilator Review</div><div class="topic-pill">Ventilator Waveform Review</div>
+            <div class="topic-pill">Tracheostomy</div><div class="topic-pill">ECMO</div><div class="topic-pill">ARDS</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>🦠 Infections &amp; Immunology</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Pneumonia</div><div class="topic-pill">Immunocompromised Hosts</div>
+            <div class="topic-pill">Fungal Infections</div><div class="topic-pill">Histoplasmosis / Coccidiomycosis</div>
+            <div class="topic-pill">Tuberculosis &amp; MAC</div><div class="topic-pill">Parapneumonic Effusion / Empyema</div>
+            <div class="topic-pill">Pandemics (Influenza, SARS, MERS, COVID)</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>🫁 Obstructive &amp; Interstitial Lung Disease</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">COPD</div><div class="topic-pill">Asthma</div><div class="topic-pill">ATD</div>
+            <div class="topic-pill">Cystic Fibrosis</div><div class="topic-pill">Bronchiectasis</div>
+            <div class="topic-pill">ILD I &amp; II</div><div class="topic-pill">Sarcoidosis</div>
+            <div class="topic-pill">Hypersensitivity Pneumonitis</div><div class="topic-pill">Occupational Lung Disease</div>
+            <div class="topic-pill">Medication-Induced Lung Toxicity</div><div class="topic-pill">Pulm. Manifestations of CTD</div>
+            <div class="topic-pill">Unexpandable Lung</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>💔 Pulmonary Vascular Disorders</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Pulmonary HTN</div><div class="topic-pill">Right Heart Catheterization</div>
+            <div class="topic-pill">PHTN Medications — What's New</div><div class="topic-pill">VTE</div>
+            <div class="topic-pill">Pulmonary Vasculitis</div><div class="topic-pill">Alveolar Hemorrhage</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>🩻 Pleural Diseases &amp; Radiology</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Pleural Effusion &amp; Pneumothorax</div><div class="topic-pill">Pleural Neoplasm</div>
+            <div class="topic-pill">Asbestosis &amp; Other Pleural Disease</div><div class="topic-pill">CXR</div>
+            <div class="topic-pill">Advanced Chest Imaging (General)</div><div class="topic-pill">Advanced Chest Imaging (DLD)</div>
+            <div class="topic-pill">Nuclear Lung Imaging</div><div class="topic-pill">POCUS 1, 2, 3</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>😴 Sleep Medicine &amp; Lung Function</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Sleep-Related Breathing Disorders (OSA)</div><div class="topic-pill">Central Sleep Apnea / OHS</div>
+            <div class="topic-pill">Polysomnogram Interpretation</div><div class="topic-pill">PFT</div>
+            <div class="topic-pill">CPET</div><div class="topic-pill">Neuromuscular Disorders</div>
+            <div class="topic-pill">Acid-Base Disorders 1 &amp; 2</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>🎗️ Lung Cancer &amp; Thoracic Surgery</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Lung Cancer &amp; Staging</div><div class="topic-pill">Lung Cancer Medical Management</div>
+            <div class="topic-pill">Lung Nodules</div><div class="topic-pill">Paraneoplastic Syndromes</div>
+            <div class="topic-pill">Mediastinal Tumors</div><div class="topic-pill">Other Mediastinal Diseases</div>
+            <div class="topic-pill">Preoperative Evaluation</div><div class="topic-pill">Lung Transplant</div>
+            <div class="topic-pill">Post-Transplant Care</div><div class="topic-pill">Pulmonary Rehabilitation</div>
+          </div>
+        </div>
+        <div class="topic-section reveal">
+          <h3>🔬 Pathology &amp; Miscellaneous</h3>
+          <div class="topic-grid">
+            <div class="topic-pill">Basic Lung Histopathology</div><div class="topic-pill">Diffuse Lung Disease Pathology</div>
+            <div class="topic-pill">Neoplastic Disease Pathology</div><div class="topic-pill">Smoking Cessation &amp; Vaccination</div>
+            <div class="topic-pill">Environmental Medicine (Altitude/Diving)</div><div class="topic-pill">Developmental Lung Disorders</div>
+            <div class="topic-pill">Rare &amp; Unusual Lung Disorders</div><div class="topic-pill">RF &amp; ECMO (Critical Care)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCHEDULE BANNER -->
+    <div class="schedule-banner reveal">
+      <div>
+        <h3>2025–2026 Lecture Schedule</h3>
+        <p>The full year-long didactic lecture schedule runs from August 2025 through June 2026, with weekly assignments for fellows and supervising consultants across all topic areas.</p>
+      </div>
+      <a href="contact.html" class="btn btn-primary" style="white-space:nowrap;">Request Schedule →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, Amman, Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a></div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+<script>
+function switchTab(e, id) {
+  document.querySelectorAll('.freq-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.freq-panel').forEach(p=>p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+  // re-trigger reveals
+  document.querySelectorAll('#panel-'+id+' .reveal').forEach(el=>{ el.classList.remove('visible'); setTimeout(()=>el.classList.add('visible'),50); });
+}
+</script>
+</body>
+</html>

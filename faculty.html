@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Faculty & Fellows — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.team-section { margin-bottom:4rem; }
+.team-section h3 { font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--navy); margin-bottom:0.4rem; padding-bottom:0.75rem; border-bottom:2px solid var(--gray-100); display:flex; align-items:center; gap:0.6rem; }
+.team-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1.5rem; margin-top:1.5rem; }
+.member-card { background:white; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); text-align:center; transition:all 0.3s; border:1px solid var(--gray-100); }
+.member-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.member-photo { width:100%; height:210px; object-fit:cover; object-position:top center; display:block; }
+.member-info { padding:1.3rem 1rem 1.5rem; }
+.member-name { font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; color:var(--navy); margin-bottom:4px; }
+.member-title { font-size:0.78rem; color:var(--blue); font-weight:600; margin-bottom:3px; }
+.member-sub { font-size:0.74rem; color:var(--gray-400); }
+.member-badge { display:inline-block; margin-top:8px; background:var(--blue-light); color:var(--blue); padding:2px 10px; border-radius:999px; font-size:0.72rem; font-weight:700; }
+
+.about-program { background:var(--navy); border-radius:var(--radius-lg); padding:2.5rem; margin-top:3rem; }
+.about-program h3 { font-family:'Playfair Display',serif; color:white; font-size:1.3rem; margin-bottom:1rem; }
+.about-program p { color:rgba(255,255,255,0.7); font-size:0.93rem; line-height:1.8; margin-bottom:0; }
+.structure-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin-top:2rem; }
+.struct-card { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius); padding:1.3rem; }
+.struct-icon { font-size:1.5rem; margin-bottom:0.5rem; }
+.struct-title { color:white; font-weight:700; font-size:0.9rem; margin-bottom:0.3rem; }
+.struct-desc { color:rgba(255,255,255,0.6); font-size:0.82rem; line-height:1.6; }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+    <a href="faculty.html" class="active">Faculty</a>
+    <a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Our Team</div>
+    <h1>Faculty &amp; <em>Fellows</em></h1>
+    <p>Meet the dedicated clinician-educators and talented trainees who make the KHCC Pulmonary Fellowship one of the most respected programs in the region.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Faculty & Fellows</span></div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- FACULTY -->
+    <div class="team-section reveal">
+      <div class="section-label">Faculty</div>
+      <h2 class="section-title">Our Faculty Team</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Our faculty are board-certified pulmonologists and critical care specialists with deep clinical expertise and a genuine passion for teaching and mentorship.</p>
+      <div class="team-grid" style="margin-top:2rem;">
+        <div class="member-card reveal delay-1">
+          <img src="1000397993.jpg" alt="Dr. Naser Mahmoud" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Naser Mahmoud</div>
+            <div class="member-title">Program Director</div>
+            <div class="member-sub">Pulmonary ,amp; Critical Care & Interventional Pulmonology</div>
+            <div class="member-badge">Section Head & Program Director</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-2">
+          <img src="1000397992.jpg" alt="Dr. Mohammad Al-Jaghbeer" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Mohammad Al-Jaghbeer</div>
+            <div class="member-title">GME Director</div>
+            <div class="member-sub">Pulmonary &amp; Critical Care Medicine</div>
+            <div class="member-badge">GME Director</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-3">
+          <img src="1000397985.jpg" alt="Dr. Feras Hawari" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Feras Hawari</div>
+            <div class="member-title">Faculty Consultant</div>
+            <div class="member-sub">Pulmonary &amp; Critical Care Medicine</div>
+            <div class="member-badge">Consultant</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-1">
+          <img src="1000397990.jpg" alt="Dr. Anas Al-Khatib" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Anas Al-Khatib</div>
+            <div class="member-title">Faculty Consultant</div>
+            <div class="member-sub">Pulmonary &amp; Critical Care Medicine</div>
+            <div class="member-badge">Consultant</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-2">
+          <img src="1000397991.jpg" alt="Dr. Shadi Obeidat" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Shadi Obeidat</div>
+            <div class="member-title">Faculty Consultant</div>
+            <div class="member-sub">Pulmonary &amp; Critical Care Medicine</div>
+            <div class="member-badge">Consultant</div>
+          </div>
+	</div>
+        <div class="member-card reveal delay-3">
+          <img src="1000397997.jpg" alt="Dr. Ryad Abeljaleel" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Ryad Abeljaleel </div>
+            <div class="member-title">Faculty Consultant</div>
+            <div class="member-sub">Thoracic Surgery</div>
+            <div class="member-badge">Consultant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FELLOWS -->
+    <div class="team-section reveal">
+      <div class="section-label">Current Fellows</div>
+      <h2 class="section-title">Our Fellows</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Our current cohort of fellows brings diverse backgrounds and clinical experiences, united by a shared commitment to excellence in respiratory medicine.</p>
+      <div class="team-grid" style="margin-top:2rem;">
+        <div class="member-card reveal delay-1">
+          <img src="1000397989.jpg" alt="Dr. Mousa" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Abdallah Asha</div>
+            <div class="member-title">Chief Fellow</div>
+            <div class="member-sub">Pulmonary Medicine</div>
+            <div class="member-badge" style="background:#fff8e1;color:#e65100;">Chief Fellow</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-2">
+          <img src="1000397986.jpg" alt="Dr. Mousa" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Dr. Mousa Eldous</div>
+            <div class="member-title">Pulmonary Fellow</div>
+            <div class="member-sub">Year 1 · KHCC Program</div>
+            <div class="member-badge">Year 1 Fellow</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-3">
+          <img src="1000397987.jpg" alt="Pulmonary Fellow" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Pulmonary Fellow</div>
+            <div class="member-title">Pulmonary Fellow</div>
+            <div class="member-sub">KHCC Program</div>
+            <div class="member-badge">Fellow</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-1">
+          <img src="1000397988.jpg" alt="Pulmonary Fellow" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Pulmonary Fellow</div>
+            <div class="member-title">Pulmonary Fellow</div>
+            <div class="member-sub">KHCC Program</div>
+            <div class="member-badge">Fellow</div>
+          </div>
+        </div>
+        <div class="member-card reveal delay-2">
+          <img src="1000397984.jpg" alt="Pulmonary Fellow" class="member-photo" onerror="this.style.background='var(--blue-light)'">
+          <div class="member-info">
+            <div class="member-name">Pulmonary Fellow</div>
+            <div class="member-title">Pulmonary Fellow</div>
+            <div class="member-sub">KHCC Program</div>
+            <div class="member-badge">Fellow</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROGRAM STRUCTURE -->
+    <div class="about-program reveal">
+      <h3>Fellowship Structure for 6 Fellows</h3>
+      <p>The program accommodates 6 fellows across 3 year cohorts (F1–F6). Fellows F1 &amp; F2 are in Year 1, F3 &amp; F4 in Year 2, and F5 &amp; F6 in Year 3. This structure ensures that at least one first-year fellow is always on Pulmonary Service alongside a senior fellow, maintaining continuity of service and mentorship.</p>
+      <div class="structure-grid">
+        <div class="struct-card">
+          <div class="struct-icon">🏁</div>
+          <div class="struct-title">F1 &amp; F2 — Year 1</div>
+          <div class="struct-desc">Begin with 8-week Pulmonary Service orientation. Serve as 1st on-call for the program.</div>
+        </div>
+        <div class="struct-card">
+          <div class="struct-icon">📈</div>
+          <div class="struct-title">F3 &amp; F4 — Year 2</div>
+          <div class="struct-desc">Progress to 2nd on-call. Begin research and elective blocks. Serve as senior mentors to Year 1.</div>
+        </div>
+        <div class="struct-card">
+          <div class="struct-icon">🎓</div>
+          <div class="struct-title">F5 &amp; F6 — Year 3</div>
+          <div class="struct-desc">Maximum elective flexibility (8 blocks). Research completion. Leadership and teaching roles within the program.</div>
+        </div>
+        <div class="struct-card">
+          <div class="struct-icon">✅</div>
+          <div class="struct-title">Graduation Requirement</div>
+          <div class="struct-desc">At least one completed and accepted research project required for graduation from the fellowship program.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, Amman, Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a></div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

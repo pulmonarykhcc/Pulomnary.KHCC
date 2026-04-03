@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Interventions & Procedures — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.proc-hero-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+.proc-card {
+  background:white; border-radius:var(--radius-lg); padding:2rem;
+  box-shadow:var(--shadow-sm); text-align:center;
+  border:1px solid var(--gray-100); transition:all 0.3s; position:relative; overflow:hidden;
+}
+.proc-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  opacity:0; transition:opacity 0.3s;
+}
+.proc-card:hover::after { opacity:1; }
+.proc-card:hover .proc-icon, .proc-card:hover .proc-title, .proc-card:hover .proc-desc { color:white; position:relative; z-index:2; }
+.proc-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.proc-icon { font-size:3rem; margin-bottom:1rem; transition:0.3s; }
+.proc-title { font-weight:700; font-size:1.05rem; color:var(--navy); margin-bottom:0.6rem; line-height:1.3; transition:0.3s; position:relative; z-index:2; }
+.proc-desc { font-size:0.87rem; color:var(--gray-600); line-height:1.7; transition:0.3s; position:relative; z-index:2; }
+.proc-tag { display:inline-block; background:var(--blue-light); color:var(--blue); padding:3px 10px; border-radius:6px; font-size:0.74rem; font-weight:700; margin-bottom:0.75rem; }
+
+.sim-banner { background:linear-gradient(135deg,#071a33,#0a2342); border-radius:var(--radius-lg); padding:3rem; margin-top:3rem; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+.sim-banner h3 { font-family:'Playfair Display',serif; font-size:1.6rem; color:white; margin-bottom:1rem; }
+.sim-banner p { color:rgba(255,255,255,0.7); font-size:0.95rem; line-height:1.8; margin-bottom:1.2rem; }
+.sim-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+.sim-list li { display:flex; align-items:center; gap:0.75rem; color:rgba(255,255,255,0.85); font-size:0.9rem; }
+.sim-list li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+
+.proficiency-section { margin-top:3rem; }
+.proficiency-section h3 { font-family:'Playfair Display',serif; color:var(--navy); font-size:1.3rem; margin-bottom:1.5rem; }
+.prof-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; }
+.prof-item { background:white; border-radius:var(--radius); padding:1rem 1.25rem; box-shadow:var(--shadow-sm); display:flex; align-items:center; gap:0.75rem; font-size:0.88rem; font-weight:600; color:var(--navy); border-left:3px solid var(--blue); }
+
+@media(max-width:900px){ .proc-hero-grid{grid-template-columns:1fr 1fr;} .sim-banner{grid-template-columns:1fr;} }
+@media(max-width:600px){ .proc-hero-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a><a href="interventions.html" class="active">Interventions</a>
+    <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Clinical Training</div>
+    <h1>Interventions &amp; <em>Clinical Scope</em></h1>
+    <p>Fellows gain hands-on proficiency in the full spectrum of advanced pulmonary procedures through supervised patient care, dedicated procedural rotations, and simulation-based training.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Interventions & Procedures</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Procedural Training</div>
+      <h2 class="section-title">Core Procedures &amp; Interventions</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Hover over each card to learn more. Our fellows achieve genuine competence — not just exposure — in every procedure listed below.</p>
+    </div>
+
+    <div class="proc-hero-grid">
+      <div class="proc-card reveal delay-1">
+        <div class="proc-tag">Bronchoscopy</div>
+        <div class="proc-icon">🔭</div>
+        <div class="proc-title">Advanced Bronchoscopy &amp; Interventional Pulmonology</div>
+        <div class="proc-desc">Diagnostic and therapeutic bronchoscopy, EBUS-TBNA, endobronchial stenting, foreign body removal, and complex airway interventions. Dedicated IP rotation plus ongoing procedural exposure throughout the year.</div>
+      </div>
+      <div class="proc-card reveal delay-2">
+        <div class="proc-tag">POCUS</div>
+        <div class="proc-icon">📡</div>
+        <div class="proc-title">Thoracic POCUS &amp; Echocardiography</div>
+        <div class="proc-desc">Point-of-care lung and cardiac ultrasound for real-time diagnosis, procedure guidance, and hemodynamic monitoring. Bi-monthly simulation sessions plus dedicated POCUS rotation blocks.</div>
+      </div>
+      <div class="proc-card reveal delay-3">
+        <div class="proc-tag">Sleep Medicine</div>
+        <div class="proc-icon">😴</div>
+        <div class="proc-title">Polysomnography &amp; Sleep Medicine</div>
+        <div class="proc-desc">Full polysomnogram setup and interpretation, PAP titration, management of OSA, OHS, central sleep apnea, and complex sleep-disordered breathing. 4 weeks per year across all 3 training years.</div>
+      </div>
+      <div class="proc-card reveal delay-1">
+        <div class="proc-tag">Critical Care</div>
+        <div class="proc-icon">🫁</div>
+        <div class="proc-title">Complex Airway Management &amp; Tracheostomy</div>
+        <div class="proc-desc">Advanced airway techniques, percutaneous and surgical tracheostomy, difficult airway scenarios, and management of patients requiring long-term ventilatory support in the MICU and beyond.</div>
+      </div>
+      <div class="proc-card reveal delay-2">
+        <div class="proc-tag">Pleural</div>
+        <div class="proc-icon">🩺</div>
+        <div class="proc-title">Chest Tube Placement &amp; Thoracoscopy</div>
+        <div class="proc-desc">Thoracentesis, chest tube insertion for pneumothorax and pleural effusion, medical thoracoscopy with biopsy, pleurodesis, and indwelling pleural catheter management.</div>
+      </div>
+      <div class="proc-card reveal delay-3">
+        <div class="proc-tag">ECMO</div>
+        <div class="proc-icon">⚡</div>
+        <div class="proc-title">ECMO &amp; Advanced Critical Care</div>
+        <div class="proc-desc">Management of extracorporeal membrane oxygenation, ARDS, and refractory respiratory failure in close collaboration with the MICU and cardiothoracic teams at KHCC.</div>
+      </div>
+      <div class="proc-card reveal delay-1">
+        <div class="proc-tag">PFT Lab</div>
+        <div class="proc-icon">📈</div>
+        <div class="proc-title">Pulmonary Function Testing &amp; CPET</div>
+        <div class="proc-desc">Complete spirometry, static lung volumes, DLCO measurement, bronchoprovocation (methacholine/mannitol challenge), inhalational challenge testing, and cardiopulmonary exercise testing interpretation.</div>
+      </div>
+      <div class="proc-card reveal delay-2">
+        <div class="proc-tag">Vascular</div>
+        <div class="proc-icon">❤️</div>
+        <div class="proc-title">Right Heart Catheterization</div>
+        <div class="proc-desc">Hemodynamic assessment for pulmonary arterial hypertension diagnosis, vasoreactivity testing, and catheter-based monitoring. Training in right-sided waveform interpretation and PHTN management.</div>
+      </div>
+      <div class="proc-card reveal delay-3">
+        <div class="proc-tag">Radiology</div>
+        <div class="proc-icon">🩻</div>
+        <div class="proc-title">Thoracic Imaging &amp; CT Correlation</div>
+        <div class="proc-desc">Advanced interpretation of chest CT, high-resolution CT for diffuse lung disease, CXR, PET-CT, V/Q scan, and systematic CT-bronchoscopy anatomical correlation with dedicated thoracic radiologists.</div>
+      </div>
+    </div>
+
+    <!-- SIMULATION BANNER -->
+    <div class="sim-banner reveal">
+      <div>
+        <h3>Simulation-Based Procedural Training</h3>
+        <p>Supervised patient care and simulation are the twin pillars of procedural education at KHCC. Fellows build genuine competence through stepwise progression — from task trainer to supervised clinical performance to independent practice.</p>
+        <p>Bi-monthly simulation sessions supervised by Dr. Naser Mahmoud cover a comprehensive range of clinical scenarios and technical skills.</p>
+        <a href="contact.html" class="btn btn-primary">Learn More / Apply →</a>
+      </div>
+      <div>
+        <ul class="sim-list">
+          <li>Lung POCUS and thoracic ultrasound guidance</li>
+          <li>Endotracheal intubation (direct and video laryngoscopy)</li>
+          <li>Inhalational challenge and PFT procedures</li>
+          <li>Diagnostic and therapeutic bronchoscopy</li>
+          <li>Chest tube placement on simulation models</li>
+          <li>Percutaneous tracheostomy technique</li>
+          <li>ECMO management and circuit troubleshooting</li>
+          <li>EBUS — endobronchial ultrasound technique</li>
+          <li>CPET and cardiopulmonary exercise scenarios</li>
+          <li>Sleep study setup and monitoring</li>
+          <li>Complex clinical scenario simulation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROFICIENCY LIST -->
+    <div class="proficiency-section reveal">
+      <h3>Procedural Proficiency Requirements</h3>
+      <div class="prof-grid">
+        <div class="prof-item">🔭 Flexible Bronchoscopy</div>
+        <div class="prof-item">🫁 EBUS-TBNA</div>
+        <div class="prof-item">📡 Lung POCUS</div>
+        <div class="prof-item">🩺 Thoracentesis</div>
+        <div class="prof-item">💉 Chest Tube Insertion</div>
+        <div class="prof-item">🔬 Medical Thoracoscopy</div>
+        <div class="prof-item">😴 PSG Interpretation</div>
+        <div class="prof-item">📈 PFT Interpretation</div>
+        <div class="prof-item">🫀 Right Heart Cath</div>
+        <div class="prof-item">⚡ ECMO Management</div>
+        <div class="prof-item">✂️ Percutaneous Trach</div>
+        <div class="prof-item">🧠 CPET Interpretation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, Amman, Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a></div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

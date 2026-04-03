@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Curriculum & Rotations — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.overview-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+.ov-card { background:white; border-radius:var(--radius); padding:1.6rem; box-shadow:var(--shadow-sm); text-align:center; border-bottom:4px solid var(--blue); }
+.ov-num { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; color:var(--blue); line-height:1; }
+.ov-label { font-size:0.83rem; color:var(--gray-600); font-weight:500; margin-top:6px; }
+
+.table-wrap { border-radius:var(--radius); box-shadow:var(--shadow-md); overflow:hidden; margin-top:2rem; }
+table { width:100%; border-collapse:collapse; background:white; }
+thead tr { background:var(--navy); }
+thead th { padding:14px 18px; text-align:left; color:white; font-size:0.8rem; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; }
+thead th:not(:first-child) { text-align:center; }
+tbody tr { border-bottom:1px solid var(--gray-100); transition:background 0.15s; }
+tbody tr:hover { background:var(--blue-pale); }
+tbody td { padding:14px 18px; font-size:0.92rem; }
+tbody td:first-child { font-weight:700; color:var(--navy); }
+tbody td:not(:first-child) { text-align:center; }
+tfoot tr { background:var(--navy); }
+tfoot td { padding:14px 18px; color:white; font-weight:700; font-size:0.92rem; text-align:center; }
+tfoot td:first-child { text-align:right; color:rgba(255,255,255,0.7); }
+.tag-yr { display:inline-block; background:var(--blue-light); color:var(--blue); padding:3px 10px; border-radius:6px; font-size:0.8rem; font-weight:700; }
+.tag-total { display:inline-block; background:var(--blue); color:white; padding:4px 12px; border-radius:999px; font-size:0.82rem; font-weight:700; }
+.tag-dash { color:var(--gray-400); font-size:1.2rem; }
+
+.rotation-detail { margin-top:3.5rem; }
+.rotation-detail h3 { font-family:'Playfair Display',serif; font-size:1.35rem; color:var(--navy); margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:2px solid var(--gray-100); }
+.rot-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.25rem; }
+.rot-card { background:white; border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-sm); border-left:4px solid var(--blue); transition:all 0.25s; }
+.rot-card:hover { box-shadow:var(--shadow-md); transform:translateX(4px); }
+.rot-card.red { border-left-color:var(--crimson); }
+.rot-card.gold { border-left-color:var(--gold); }
+.rot-card.teal { border-left-color:#00838f; }
+.rot-icon { font-size:1.6rem; margin-bottom:0.6rem; }
+.rot-title { font-weight:700; font-size:0.97rem; color:var(--navy); margin-bottom:0.35rem; }
+.rot-blocks { font-size:0.8rem; color:var(--blue); font-weight:600; margin-bottom:0.5rem; }
+.rot-desc { font-size:0.85rem; color:var(--gray-600); line-height:1.65; }
+
+.elective-section { background:var(--navy); border-radius:var(--radius-lg); padding:2.5rem; margin-top:2.5rem; }
+.elective-section h3 { font-family:'Playfair Display',serif; color:white; font-size:1.3rem; margin-bottom:0.5rem; }
+.elective-section p { color:rgba(255,255,255,0.65); font-size:0.9rem; margin-bottom:1.5rem; }
+.elective-pills { display:flex; flex-wrap:wrap; gap:0.6rem; }
+.elective-pill { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.9); padding:7px 16px; border-radius:8px; font-size:0.85rem; font-weight:600; transition:all 0.2s; cursor:default; }
+.elective-pill:hover { background:rgba(255,255,255,0.18); }
+
+.rules-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; }
+.rule-card { background:white; border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow-sm); display:flex; gap:1rem; align-items:flex-start; }
+.rule-icon { font-size:1.6rem; flex-shrink:0; }
+.rule-title { font-weight:700; color:var(--navy); margin-bottom:0.3rem; font-size:0.95rem; }
+.rule-desc { font-size:0.86rem; color:var(--gray-600); line-height:1.65; }
+@media(max-width:600px){ .rules-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a><a href="about.html">About</a>
+    <a href="curriculum.html" class="active">Curriculum</a>
+    <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Program Structure</div>
+    <h1>Curriculum &amp; <em>Rotations</em></h1>
+    <p>A comprehensive 3-year fellowship built on 156 weekly training blocks, designed to produce complete, confident pulmonologists ready for any clinical challenge.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Curriculum & Rotations</span></div>
+
+<!-- OVERVIEW NUMBERS -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Program at a Glance</div>
+      <h2 class="section-title">Fellowship Overview</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">The fellowship spans 3 academic years (July 1 – June 30), structured as 52 weekly blocks per year. First-year fellows begin with an intensive 8-week orientation on the Pulmonary Service before proceeding to other rotations.</p>
+    </div>
+    <div class="overview-grid">
+      <div class="ov-card reveal delay-1"><div class="ov-num">3</div><div class="ov-label">Year Program</div></div>
+      <div class="ov-card reveal delay-2"><div class="ov-num">156</div><div class="ov-label">Total Training Blocks</div></div>
+      <div class="ov-card reveal delay-3"><div class="ov-num">52</div><div class="ov-label">Blocks Per Year</div></div>
+      <div class="ov-card reveal delay-1"><div class="ov-num">78</div><div class="ov-label">Pulmonary Service Blocks</div></div>
+      <div class="ov-card reveal delay-2"><div class="ov-num">8</div><div class="ov-label">Week Orientation (Year 1)</div></div>
+      <div class="ov-card reveal delay-3"><div class="ov-num">6</div><div class="ov-label">Fellows Per Cohort</div></div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="section-label">Rotation Schedule</div>
+      <h2 class="section-title">3-Year Rotation Breakdown</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Rotation</th>
+            <th>Year 1</th>
+            <th>Year 2</th>
+            <th>Year 3</th>
+            <th>Total Blocks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🫁 Pulmonary Service<br><small style="font-weight:400;color:var(--gray-400)">Consults · Clinics · Bronchoscopy · IP · PFTs · Smoking</small></td>
+            <td><span class="tag-yr">30 wks</span></td><td><span class="tag-yr">24 wks</span></td><td><span class="tag-yr">24 wks</span></td>
+            <td><span class="tag-total">78</span></td>
+          </tr>
+          <tr>
+            <td>🏥 Medical ICU</td>
+            <td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">2 wks</span></td>
+            <td><span class="tag-total">10</span></td>
+          </tr>
+          <tr>
+            <td>😴 Sleep Medicine</td>
+            <td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">4 wks</span></td>
+            <td><span class="tag-total">12</span></td>
+          </tr>
+          <tr>
+            <td>✂️ Thoracic Surgery</td>
+            <td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">2 wks</span></td>
+            <td><span class="tag-total">10</span></td>
+          </tr>
+          <tr>
+            <td>🔬 Thoracic Radiology</td>
+            <td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">2 wks</span></td>
+            <td><span class="tag-total">10</span></td>
+          </tr>
+          <tr>
+            <td>📊 Research</td>
+            <td><span class="tag-dash">—</span></td><td><span class="tag-yr">3 wks</span></td><td><span class="tag-yr">4 wks</span></td>
+            <td><span class="tag-total">7</span></td>
+          </tr>
+          <tr>
+            <td>🔧 Procedural / IR Fellow</td>
+            <td><span class="tag-yr">2 wks</span></td><td><span class="tag-yr">2 wks</span></td><td><span class="tag-yr">1 wk</span></td>
+            <td><span class="tag-total">5</span></td>
+          </tr>
+          <tr>
+            <td>📡 Thoracic POCUS / ECHO</td>
+            <td><span class="tag-yr">1 wk</span></td><td><span class="tag-dash">—</span></td><td><span class="tag-yr">2 wks</span></td>
+            <td><span class="tag-total">3</span></td>
+          </tr>
+          <tr>
+            <td>🌍 Elective<br><small style="font-weight:400;color:var(--gray-400)">Home or Away · Fellow's Choice</small></td>
+            <td><span class="tag-dash">—</span></td><td><span class="tag-yr">4 wks</span></td><td><span class="tag-yr">8 wks</span></td>
+            <td><span class="tag-total">12</span></td>
+          </tr>
+          <tr>
+            <td>🏖️ Vacation</td>
+            <td><span class="tag-yr">3 wks</span></td><td><span class="tag-yr">3 wks</span></td><td><span class="tag-yr">3 wks</span></td>
+            <td><span class="tag-total">9</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Grand Total</td><td>52</td><td>52</td><td>52</td><td>156</td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ROTATION DETAILS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">What You'll Experience</div>
+      <h2 class="section-title">Rotation Highlights</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="rot-grid">
+      <div class="rot-card reveal delay-1">
+        <div class="rot-icon">🫁</div>
+        <div class="rot-title">Pulmonary Service</div>
+        <div class="rot-blocks">78 blocks · Core of the program</div>
+        <div class="rot-desc">Inpatient consults, outpatient clinics, bronchoscopy, interventional pulmonology, PFT lab, and smoking cessation clinics. Clinics and procedures run throughout the year, not only during dedicated rotation blocks.</div>
+      </div>
+      <div class="rot-card red reveal delay-2">
+        <div class="rot-icon">🏥</div>
+        <div class="rot-title">Medical ICU</div>
+        <div class="rot-blocks">10 blocks · Critical care immersion</div>
+        <div class="rot-desc">Year 1 fellows serve as 1st on-call; Year 2 as 2nd on-call. Covers ARDS, ECMO, mechanical ventilation, vasopressor management, and multidisciplinary critical care in a high-acuity environment.</div>
+      </div>
+      <div class="rot-card gold reveal delay-3">
+        <div class="rot-icon">😴</div>
+        <div class="rot-title">Sleep Medicine</div>
+        <div class="rot-blocks">12 blocks · 4 weeks per year</div>
+        <div class="rot-desc">Polysomnography interpretation, OSA/OHS/central apnea management, CPAP/BiPAP titration, and sleep-related breathing disorder clinics. Dedicated sleep lab exposure throughout all 3 years.</div>
+      </div>
+      <div class="rot-card teal reveal delay-1">
+        <div class="rot-icon">✂️</div>
+        <div class="rot-title">Thoracic Surgery</div>
+        <div class="rot-blocks">10 blocks · Surgical perspective</div>
+        <div class="rot-desc">Operating room exposure, post-thoracotomy care, preoperative pulmonary evaluation, chest wall reconstruction, and combined surgical-pulmonary MDC participation.</div>
+      </div>
+      <div class="rot-card reveal delay-2">
+        <div class="rot-icon">🔬</div>
+        <div class="rot-title">Thoracic Radiology</div>
+        <div class="rot-blocks">10 blocks · Imaging mastery</div>
+        <div class="rot-desc">Advanced interpretation of chest CT, high-resolution CT for diffuse lung disease, CXR, PET-CT, V/Q scans, and CT-bronchoscopy anatomical correlation with dedicated thoracic radiologists.</div>
+      </div>
+      <div class="rot-card red reveal delay-3">
+        <div class="rot-icon">📊</div>
+        <div class="rot-title">Research</div>
+        <div class="rot-blocks">7 blocks · Yr 2 & 3 only</div>
+        <div class="rot-desc">Dedicated research time with faculty mentorship. At least one completed research project is a requirement for graduation. Elective rotations can include additional research time.</div>
+      </div>
+    </div>
+
+    <!-- ELECTIVES -->
+    <div class="elective-section reveal" style="margin-top:3rem;">
+      <h3>Suggested Elective Rotations</h3>
+      <p>Electives are available in Years 2 and 3 and can be completed at KHCC or at affiliated institutions locally and internationally.</p>
+      <div class="elective-pills">
+        <span class="elective-pill">Anesthesia</span>
+        <span class="elective-pill">Cardiology / PHTN</span>
+        <span class="elective-pill">Right Heart Catheterization</span>
+        <span class="elective-pill">Bronchoscopy</span>
+        <span class="elective-pill">PFT Lab</span>
+        <span class="elective-pill">Cystic Fibrosis</span>
+        <span class="elective-pill">Allergy / Immunology</span>
+        <span class="elective-pill">Transplant</span>
+        <span class="elective-pill">Interventional Pulm.</span>
+        <span class="elective-pill">Smoking Cessation</span>
+        <span class="elective-pill">Interventional Radiology</span>
+        <span class="elective-pill">Research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE RULES -->
+<section class="section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Program Structure Rules</div>
+      <h2 class="section-title">Key Schedule Features</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="rules-grid">
+      <div class="rule-card reveal delay-1">
+        <div class="rule-icon">🏁</div>
+        <div><div class="rule-title">Year 1 Orientation</div><div class="rule-desc">Both first-year fellows (F1 & F2) begin with a minimum 8-week Pulmonary Service orientation starting July 1, establishing foundational clinical competencies before other rotations.</div></div>
+      </div>
+      <div class="rule-card reveal delay-2">
+        <div class="rule-icon">📞</div>
+        <div><div class="rule-title">On-Call Structure</div><div class="rule-desc">Year 1 fellows serve as 1st on-call; Year 2 fellows as 2nd on-call. At least one Year 1 fellow must be on Pulmonary Service alongside one senior fellow at all times.</div></div>
+      </div>
+      <div class="rule-card reveal delay-3">
+        <div class="rule-icon">🔁</div>
+        <div><div class="rule-title">Rotation Flexibility</div><div class="rule-desc">Rotations longer than 4 blocks can be split across the year. Shorter rotations (&lt;4 blocks) may be combined within a single month for efficiency and continuity of learning.</div></div>
+      </div>
+      <div class="rule-card reveal delay-1">
+        <div class="rule-icon">🎓</div>
+        <div><div class="rule-title">Research Requirement</div><div class="rule-desc">Completion of at least one research project is a mandatory graduation requirement. Elective rotations can be used for additional dedicated research time with faculty mentorship.</div></div>
+      </div>
+      <div class="rule-card reveal delay-2">
+        <div class="rule-icon">🌐</div>
+        <div><div class="rule-title">Elective Flexibility</div><div class="rule-desc">Elective rotations can be completed at KHCC (home) or at external institutions nationally and internationally, allowing fellows to pursue specific subspecialty interests.</div></div>
+      </div>
+      <div class="rule-card reveal delay-3">
+        <div class="rule-icon">🏖️</div>
+        <div><div class="rule-title">Vacation Policy</div><div class="rule-desc">3 vacation blocks (weeks) per year. At least 2 of the 3 vacation blocks must be scheduled in advance through the program coordinator to ensure coverage.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, Amman, Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">pulmonary.fellowship@khcc.jo</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="#">𝕏</a><a class="social-link" href="#">in</a><a class="social-link" href="#">R</a></div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
