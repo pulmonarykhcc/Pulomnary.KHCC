@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Our Calculators — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.calculator-section { margin-bottom:4rem; }
+.calculator-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:1.5rem; margin-top:2rem; }
+.calculator-card { background:white; border-radius:var(--radius-lg); padding:2rem; box-shadow:var(--shadow-sm); text-align:center; border:1px solid var(--gray-100); transition:all 0.3s; }
+.calculator-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); }
+.calculator-icon { font-size:2.5rem; margin-bottom:1rem; color:var(--blue); }
+.calculator-title { font-family:'Playfair Display',serif; font-weight:700; font-size:1.2rem; color:var(--navy); margin-bottom:0.5rem; }
+.calculator-desc { font-size:0.9rem; color:var(--gray-600); line-height:1.6; }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a>
+    <a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calculators.html" class="active">Our Calculators</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Clinical Tools</div>
+    <h1>Our <em>Calculators</em></h1>
+    <p>Essential clinical calculators for pulmonary medicine, risk assessment, and patient management used in our fellowship training.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span class="current">Our Calculators</span></div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- PE Calculators -->
+    <div class="calculator-section reveal">
+      <div class="section-label">Pulmonary Embolism</div>
+      <h2 class="section-title">PE Calculators</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Tools for assessing pulmonary embolism risk, Wells score, PERC rule, and more.</p>
+      <div class="calculator-grid">
+        <div class="calculator-card">
+          <div class="calculator-icon">🩸</div>
+          <div class="calculator-title">Wells Score for PE</div>
+          <div class="calculator-desc">Clinical prediction rule for estimating pretest probability of pulmonary embolism.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">📊</div>
+          <div class="calculator-title">PERC Rule</div>
+          <div class="calculator-desc">Pulmonary Embolism Rule-out Criteria for low-risk patients.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">⚖️</div>
+          <div class="calculator-title">Revised Geneva Score</div>
+          <div class="calculator-desc">Alternative scoring system for PE probability assessment.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pre-op Assessment Calculators -->
+    <div class="calculator-section reveal">
+      <div class="section-label">Surgical Risk</div>
+      <h2 class="section-title">Pre-op Assessment Calculators</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Preoperative risk calculators for pulmonary complications and surgical outcomes.</p>
+      <div class="calculator-grid">
+        <div class="calculator-card">
+          <div class="calculator-icon">🫁</div>
+          <div class="calculator-title">Thoracic Surgery Risk</div>
+          <div class="calculator-desc">Predict postoperative pulmonary complications in thoracic surgery.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">💨</div>
+          <div class="calculator-title">FEV1 Prediction</div>
+          <div class="calculator-desc">Estimate postoperative lung function after lung resection.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">📈</div>
+          <div class="calculator-title">Cardiopulmonary Risk</div>
+          <div class="calculator-desc">Assess overall perioperative risk for lung disease patients.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pneumonia Calculators -->
+    <div class="calculator-section reveal">
+      <div class="section-label">Infectious Diseases</div>
+      <h2 class="section-title">Pneumonia Calculators</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Severity scoring and management tools for pneumonia assessment.</p>
+      <div class="calculator-grid">
+        <div class="calculator-card">
+          <div class="calculator-icon">🌡️</div>
+          <div class="calculator-title">CURB-65 Score</div>
+          <div class="calculator-desc">Severity assessment and site-of-care decision for community-acquired pneumonia.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">🏥</div>
+          <div class="calculator-title">PSI/PORT Score</div>
+          <div class="calculator-desc">Pneumonia Severity Index for predicting mortality and hospitalization needs.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">🦠</div>
+          <div class="calculator-title">IDSA/ATS Criteria</div>
+          <div class="calculator-desc">Guidelines for hospital admission and ICU care in pneumonia.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Calculators -->
+    <div class="calculator-section reveal">
+      <div class="section-label">Additional Tools</div>
+      <h2 class="section-title">Other Calculators</h2>
+      <div class="section-divider"></div>
+      <p class="section-sub">Miscellaneous clinical calculators relevant to pulmonary medicine.</p>
+      <div class="calculator-grid">
+        <div class="calculator-card">
+          <div class="calculator-icon">🫀</div>
+          <div class="calculator-title">BODE Index</div>
+          <div class="calculator-desc">Multidimensional grading system for COPD severity and prognosis.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">📏</div>
+          <div class="calculator-title">BMI Calculator</div>
+          <div class="calculator-desc">Body Mass Index calculation for obesity assessment in respiratory disease.</div>
+        </div>
+        <div class="calculator-card">
+          <div class="calculator-icon">⏱️</div>
+          <div class="calculator-title">Smoking Cessation</div>
+          <div class="calculator-desc">Tools for smoking history quantification and cessation planning.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, training the next generation of respiratory physicians in Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="calculators.html">Our Calculators</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Pulmonary.khcc@gmail.com">Pulmonary.khcc@gmail.com</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61574317923329"><i class="fab fa-facebook-f"></i></a><a class="social-link" href="https://www.instagram.com/pulmonary.khcc/"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://www.linkedin.com/in/pulmonary-fellowship-program-khcc-a0a568401/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BqMFjgmxoQZKoJGxGVgVBRQ%3D%3D"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html></content>
+<parameter name="filePath">c:\Users\User\OneDrive\Desktop\KHCC pulm\website\KHCC_Pulmonary_Website\Pulomnary.KHCC\calculators.html
