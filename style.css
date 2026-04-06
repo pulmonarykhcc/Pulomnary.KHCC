@@ -171,7 +171,7 @@ footer {
 }
 .footer-inner { max-width:1140px; margin:0 auto; }
 .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; }
-.footer-brand img { height:52px; margin-bottom:1rem; }
+.footer-brand img { height:52px; width:52px; border-radius:50%; object-fit:cover; margin-bottom:1rem; }
 .footer-brand p { font-size:0.86rem; line-height:1.75; max-width:280px; }
 .footer-col h4 { color:white; font-size:0.82rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem; }
 .footer-col a { display:block; color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.86rem; margin-bottom:0.5rem; transition:color 0.2s; }
