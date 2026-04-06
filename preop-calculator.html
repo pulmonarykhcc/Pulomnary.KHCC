@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pre-op Risk Calculator — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.calculator-container { max-width:900px; margin:3rem auto; background:white; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; }
+.calculator-header { padding:2rem; background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%); color:white; }
+.calculator-header h1 { margin:0 0 0.5rem 0; font-family:'Playfair Display',serif; font-size:2rem; }
+.calculator-header p { margin:0; opacity:0.95; }
+.calculator-iframe-container { padding:2rem; }
+.calculator-iframe { width:100%; border:none; border-radius:var(--radius-lg); box-shadow:var(--shadow-md); min-height:800px; }
+.back-button { padding:1.5rem 2rem; text-align:center; border-top:1px solid var(--gray-200); }
+.back-button a { color:var(--blue); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem; }
+.back-button a:hover { text-decoration:underline; }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a>
+    <a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calculators.html">Our Calculators</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="page-hero-badge">Clinical Tool</div>
+    <h1>Pre-op Risk <em>Calculator</em></h1>
+    <p>Interactive pre-operative pulmonary risk assessment for surgical patients.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="calculators.html">Our Calculators</a><span>›</span><span class="current">Pre-op Risk Calculator</span></div>
+
+<section class="section">
+  <div class="container">
+    <div class="calculator-container">
+      <div class="calculator-header">
+        <h1>🏥 Pre-operative Risk Assessment</h1>
+        <p>Use this interactive tool to evaluate preoperative pulmonary risk and guide surgical planning.</p>
+      </div>
+      
+      <div class="calculator-iframe-container">
+        <iframe class="calculator-iframe" src="https://pulmo-risk-flow.base44.app" title="Pre-op Risk Calculator"></iframe>
+      </div>
+      
+      <div class="back-button">
+        <a href="calculators.html">← Back to Calculators</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:4rem; padding:2rem; background:var(--gray-50); border-radius:var(--radius-lg);">
+    <h3 style="color:var(--navy); margin-bottom:1rem;">📖 About Preoperative Risk Assessment</h3>
+    <p style="color:var(--gray-700); line-height:1.7;">The Pre-operative Risk Calculator is designed to help clinicians assess the risk of postoperative pulmonary complications in surgical patients. This tool integrates multiple clinical parameters including lung function, exercise capacity, and patient demographics to provide a comprehensive risk stratification model that supports informed surgical decision-making and perioperative optimization.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, training the next generation of respiratory physicians in Jordan.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="calculators.html">Our Calculators</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Pulmonary.khcc@gmail.com">Pulmonary.khcc@gmail.com</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61574317923329"><i class="fab fa-facebook-f"></i></a><a class="social-link" href="https://www.instagram.com/pulmonary.khcc/"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://www.linkedin.com/in/pulmonary-fellowship-program-khcc-a0a568401/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BqMFjgmxoQZKoJGxGVgVBRQ%3D%3D"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
