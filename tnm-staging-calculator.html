@@ -188,20 +188,32 @@ const calculateBtn = document.getElementById('calculate');
 const clearBtn = document.getElementById('clear');
 
 function getStageGroup(t, n, m) {
-  const nGroup = n.startsWith('N2') ? 'N2' : n;
   if (m !== 'M0') {
     return m === 'M1a' ? 'Stage IVA' : 'Stage IVB';
   }
-  if (nGroup === 'N3') {
+
+  if (n === 'N3') {
+    if (t === 'T1a' || t === 'T1b' || t === 'T1c' || t === 'T2a' || t === 'T2b') {
+      return 'Stage IIIB';
+    }
     return 'Stage IIIC';
   }
-  if (nGroup === 'N2') {
+
+  if (n === 'N2a') {
     if (t === 'T4') {
-      return 'Stage IIIB';
+      return 'Stage IIIC';
     }
     return 'Stage IIIA';
   }
-  if (nGroup === 'N1') {
+
+  if (n === 'N2b') {
+    if (t === 'T4') {
+      return 'Stage IIIC';
+    }
+    return 'Stage IIIB';
+  }
+
+  if (n === 'N1') {
     if (t === 'T4') {
       return 'Stage IIIB';
     }
@@ -210,6 +222,7 @@ function getStageGroup(t, n, m) {
     }
     return 'Stage IIB';
   }
+
   if (n === 'N0') {
     switch (t) {
       case 'T1a': return 'Stage IA1';
