@@ -4,6 +4,7 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>NSCLC TNM Staging — KHCC Pulmonary Fellowship</title>
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="1000397994.png" type="image/png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 .calculator-page { max-width:980px; margin:3rem auto; }
@@ -14,8 +15,11 @@
 .panel-body { padding:2rem; }
 .stage-grid { display:grid; grid-template-columns:repeat(3,minmax(160px,1fr)); gap:1rem; margin-bottom:1.5rem; }
 .card { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius); padding:1.25rem; }
-.card h3 { margin:0 0 0.5rem; font-size:1rem; color:var(--navy); }
-.card p { margin:0; color:var(--gray-700); font-size:0.95rem; line-height:1.65; }
+.card h3 { margin:0 0 0.75rem; font-size:1rem; color:var(--navy); }
+.card p, .card ul { margin:0; color:var(--gray-700); font-size:0.92rem; line-height:1.55; }
+.card ul { padding-left:1rem; margin-top:0.5rem; }
+.card li { margin-bottom:0.35rem; }
+.category-detail { font-size:0.9rem; color:var(--gray-600); margin-top:0.8rem; }
 .form-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
 .form-group { display:flex; flex-direction:column; gap:0.5rem; }
 .form-group label { font-size:0.88rem; font-weight:700; color:var(--navy); }
@@ -64,15 +68,33 @@ button.clear-btn { background:var(--gray-100); color:var(--navy); }
         <div class="stage-grid">
           <div class="card">
             <h3>T Category</h3>
-            <p>T1a / T1b / T1c / T2a / T2b / T3 / T4</p>
+            <ul>
+              <li><strong>T1a:</strong> ≤1 cm</li>
+              <li><strong>T1b:</strong> >1–2 cm</li>
+              <li><strong>T1c:</strong> >2–3 cm</li>
+              <li><strong>T2a:</strong> >3–4 cm</li>
+              <li><strong>T2b:</strong> >4–5 cm</li>
+              <li><strong>T3:</strong> >5–7 cm, invasion of chest wall/mediastinal pleura/diaphragm/phrenic nerve, or separate nodule in same lobe</li>
+              <li><strong>T4:</strong> >7 cm, invasion of mediastinum/heart/trachea/esophagus/vertebral body, or separate ipsilateral nodule in different lobe</li>
+            </ul>
           </div>
           <div class="card">
             <h3>N Category</h3>
-            <p>N0 / N1 / N2 / N3</p>
+            <ul>
+              <li><strong>N0:</strong> no regional lymph node metastasis</li>
+              <li><strong>N1:</strong> ipsilateral peribronchial and/or ipsilateral hilar nodes</li>
+              <li><strong>N2:</strong> ipsilateral mediastinal and/or subcarinal nodes</li>
+              <li><strong>N3:</strong> contralateral mediastinal/hilar or supraclavicular nodes</li>
+            </ul>
           </div>
           <div class="card">
             <h3>M Category</h3>
-            <p>M0 / M1a / M1b / M1c</p>
+            <ul>
+              <li><strong>M0:</strong> no distant metastasis</li>
+              <li><strong>M1a:</strong> separate tumor nodule(s) in contralateral lobe, pleural/pericardial nodules, or malignant effusion</li>
+              <li><strong>M1b:</strong> single extrathoracic metastasis</li>
+              <li><strong>M1c:</strong> multiple extrathoracic metastases in one or more organs</li>
+            </ul>
           </div>
         </div>
 
@@ -216,13 +238,49 @@ function getStageDescription(stage) {
   return descriptions[stage] || 'Review the AJCC 9th edition criteria; this tool is a simplified reference.';
 }
 
+function getManagement(stage) {
+  const plans = {
+    'Stage IA1': 'Primary surgical resection with lobectomy or sublobar resection in selected patients.',
+    'Stage IA2': 'Surgical resection with lymph node sampling; consider adjuvant therapy if high-risk features are present.',
+    'Stage IA3': 'Surgical resection with systematic nodal evaluation; adjuvant chemotherapy for high-risk pathology.',
+    'Stage IB': 'Surgery with mediastinal staging; adjuvant chemo may be considered for high-risk tumors.',
+    'Stage IIA': 'Surgical resection plus adjuvant chemotherapy for most patients.',
+    'Stage IIB': 'Surgery with adjuvant platinum-based chemotherapy; consider multidisciplinary evaluation.',
+    'Stage IIIA': 'Multimodality therapy including possible neoadjuvant chemo/chemoradiation followed by surgery in resectable disease.',
+    'Stage IIIB': 'Concurrent chemoradiation is often preferred; surgical resection only for very selected resectable cases.',
+    'Stage IIIC': 'Definitive chemoradiation with possible immunotherapy; surgical resection rarely indicated.',
+    'Stage IVA': 'Systemic therapy with targeted therapy/chemo-immunotherapy; consider local therapy for oligometastatic disease.',
+    'Stage IVB': 'Palliative systemic therapy with immunotherapy/targeted therapy and supportive care.'
+  };
+  return plans[stage] || 'Management should be individualized by a multidisciplinary tumor board.';
+}
+
+function getPrognosis(stage) {
+  const prognosis = {
+    'Stage IA1': '5-year survival ~90–95%.',
+    'Stage IA2': '5-year survival ~85–90%.',
+    'Stage IA3': '5-year survival ~70–80%.',
+    'Stage IB': '5-year survival ~60–70%.',
+    'Stage IIA': '5-year survival ~50–60%.',
+    'Stage IIB': '5-year survival ~40–50%.',
+    'Stage IIIA': '5-year survival ~25–35%.',
+    'Stage IIIB': '5-year survival ~15–25%.',
+    'Stage IIIC': '5-year survival ~10–20%.',
+    'Stage IVA': '5-year survival ~10% or lower, depending on metastatic burden.',
+    'Stage IVB': '5-year survival generally <10%, reflecting widespread metastatic disease.'
+  };
+  return prognosis[stage] || 'Prognosis varies widely; use multidisciplinary evaluation and current evidence-based staging.';
+}
+
 function updateResult() {
   const t = tCategory.value;
   const n = nCategory.value;
   const m = mCategory.value;
   const stage = getStageGroup(t, n, m);
   const desc = getStageDescription(stage);
-  resultText.innerHTML = `<strong>${stage}</strong><br>${desc}`;
+  const plan = getManagement(stage);
+  const survival = getPrognosis(stage);
+  resultText.innerHTML = `<strong>${stage}</strong><br>${desc}<br><br><strong>Recommended next step:</strong> ${plan}<br><strong>5-year prognosis:</strong> ${survival}`;
 }
 
 calculateBtn.addEventListener('click', () => updateResult());
@@ -236,3 +294,4 @@ clearBtn.addEventListener('click', () => {
 <script src="shared.js"></script>
 </body>
 </html>
+
