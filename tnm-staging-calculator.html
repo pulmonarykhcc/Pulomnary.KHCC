@@ -62,7 +62,7 @@ button.clear-btn { background:var(--gray-100); color:var(--navy); }
     <div class="calculator-panel">
       <div class="panel-header">
         <h1>NSCLC TNM Staging</h1>
-        <p>AJCC 9th edition stage grouping for non-small cell lung cancer. Enter T, N, and M categories to see the corresponding clinical stage.</p>
+        <p>AJCC 9th edition stage grouping for non-small cell lung cancer. Enter T, N, and M categories, including N2a/N2b subclassification, to see the corresponding clinical stage.</p>
       </div>
       <div class="panel-body">
         <div class="stage-grid">
@@ -83,7 +83,8 @@ button.clear-btn { background:var(--gray-100); color:var(--navy); }
             <ul>
               <li><strong>N0:</strong> no regional lymph node metastasis</li>
               <li><strong>N1:</strong> ipsilateral peribronchial and/or ipsilateral hilar nodes</li>
-              <li><strong>N2:</strong> ipsilateral mediastinal and/or subcarinal nodes</li>
+              <li><strong>N2a:</strong> single ipsilateral mediastinal/subcarinal nodal station</li>
+              <li><strong>N2b:</strong> multiple ipsilateral mediastinal/subcarinal nodal stations</li>
               <li><strong>N3:</strong> contralateral mediastinal/hilar or supraclavicular nodes</li>
             </ul>
           </div>
@@ -116,7 +117,8 @@ button.clear-btn { background:var(--gray-100); color:var(--navy); }
             <select id="n-category">
               <option value="N0">N0</option>
               <option value="N1">N1</option>
-              <option value="N2">N2</option>
+              <option value="N2a">N2a</option>
+              <option value="N2b">N2b</option>
               <option value="N3">N3</option>
             </select>
           </div>
@@ -142,7 +144,7 @@ button.clear-btn { background:var(--gray-100); color:var(--navy); }
         </div>
 
         <div class="note-box">
-          This tool is intended for educational reference only and follows simplified AJCC 9th edition NSCLC stage grouping. Always confirm final staging with multidisciplinary review and institutional guidelines.
+          This tool is intended for educational reference only and follows simplified AJCC 9th edition NSCLC stage grouping. It now includes N2a single-station vs N2b multiple-station subclassification. Always confirm final staging with multidisciplinary review and institutional guidelines.
         </div>
       </div>
     </div>
@@ -186,19 +188,20 @@ const calculateBtn = document.getElementById('calculate');
 const clearBtn = document.getElementById('clear');
 
 function getStageGroup(t, n, m) {
+  const nGroup = n.startsWith('N2') ? 'N2' : n;
   if (m !== 'M0') {
     return m === 'M1a' ? 'Stage IVA' : 'Stage IVB';
   }
-  if (n === 'N3') {
+  if (nGroup === 'N3') {
     return 'Stage IIIC';
   }
-  if (n === 'N2') {
-    if (t === 'T4' || t === 'T3') {
+  if (nGroup === 'N2') {
+    if (t === 'T4') {
       return 'Stage IIIB';
     }
     return 'Stage IIIA';
   }
-  if (n === 'N1') {
+  if (nGroup === 'N1') {
     if (t === 'T4') {
       return 'Stage IIIB';
     }
@@ -246,7 +249,7 @@ function getManagement(stage) {
     'Stage IB': 'Surgery with mediastinal staging; adjuvant chemo may be considered for high-risk tumors.',
     'Stage IIA': 'Surgical resection plus adjuvant chemotherapy for most patients.',
     'Stage IIB': 'Surgery with adjuvant platinum-based chemotherapy; consider multidisciplinary evaluation.',
-    'Stage IIIA': 'Multimodality therapy including possible neoadjuvant chemo/chemoradiation followed by surgery in resectable disease.',
+    'Stage IIIA': 'Multimodality therapy including possible neoadjuvant chemo/chemoradiation followed by surgery in resectable disease; N2a single-station may be more favorable than N2b multiple-station disease.',
     'Stage IIIB': 'Concurrent chemoradiation is often preferred; surgical resection only for very selected resectable cases.',
     'Stage IIIC': 'Definitive chemoradiation with possible immunotherapy; surgical resection rarely indicated.',
     'Stage IVA': 'Systemic therapy with targeted therapy/chemo-immunotherapy; consider local therapy for oligometastatic disease.',
@@ -263,7 +266,7 @@ function getPrognosis(stage) {
     'Stage IB': '5-year survival ~60–70%.',
     'Stage IIA': '5-year survival ~50–60%.',
     'Stage IIB': '5-year survival ~40–50%.',
-    'Stage IIIA': '5-year survival ~25–35%.',
+    'Stage IIIA': '5-year survival ~25–35%; N2a single-station carries a more favorable prognosis than N2b multiple-station disease.',
     'Stage IIIB': '5-year survival ~15–25%.',
     'Stage IIIC': '5-year survival ~10–20%.',
     'Stage IVA': '5-year survival ~10% or lower, depending on metastatic burden.',
@@ -280,7 +283,8 @@ function updateResult() {
   const desc = getStageDescription(stage);
   const plan = getManagement(stage);
   const survival = getPrognosis(stage);
-  resultText.innerHTML = `<strong>${stage}</strong><br>${desc}<br><br><strong>Recommended next step:</strong> ${plan}<br><strong>5-year prognosis:</strong> ${survival}`;
+  const nNote = n === 'N2a' ? 'Single-station N2 disease.' : n === 'N2b' ? 'Multiple-station N2 disease.' : '';
+  resultText.innerHTML = `<strong>${stage}</strong><br>${desc}${nNote ? '<br><strong>N2 subclass:</strong> ' + nNote : ''}<br><br><strong>Recommended next step:</strong> ${plan}<br><strong>5-year prognosis:</strong> ${survival}`;
 }
 
 calculateBtn.addEventListener('click', () => updateResult());
