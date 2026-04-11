@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NSCLC TNM Staging — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.calculator-page { max-width:980px; margin:3rem auto; }
+.calculator-panel { background:white; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; }
+.panel-header { padding:2rem; background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%); color:white; }
+.panel-header h1 { margin:0 0 0.5rem; font-family:'Playfair Display',serif; font-size:2.2rem; }
+.panel-header p { margin:0; color:rgba(255,255,255,0.9); line-height:1.7; }
+.panel-body { padding:2rem; }
+.stage-grid { display:grid; grid-template-columns:repeat(3,minmax(160px,1fr)); gap:1rem; margin-bottom:1.5rem; }
+.card { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius); padding:1.25rem; }
+.card h3 { margin:0 0 0.5rem; font-size:1rem; color:var(--navy); }
+.card p { margin:0; color:var(--gray-700); font-size:0.95rem; line-height:1.65; }
+.form-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+.form-group { display:flex; flex-direction:column; gap:0.5rem; }
+.form-group label { font-size:0.88rem; font-weight:700; color:var(--navy); }
+.form-group select { width:100%; padding:12px 14px; border:1.5px solid var(--gray-200); border-radius:12px; background:white; color:var(--gray-800); font-size:0.95rem; }
+.actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:1.5rem; }
+button.calculate-btn, button.clear-btn { border:none; border-radius:12px; padding:0.95rem 1.5rem; font-weight:700; cursor:pointer; transition:all 0.25s; }
+button.calculate-btn { background:var(--navy); color:white; }
+button.calculate-btn:hover { background:var(--blue); }
+button.clear-btn { background:var(--gray-100); color:var(--navy); }
+.result-box { background:linear-gradient(135deg,#eef7ff 0%,#f6fcff 100%); border:1px solid #c7e2ff; border-radius:var(--radius); padding:1.75rem; }
+.result-title { margin:0 0 0.75rem; font-size:1.15rem; color:var(--navy); }
+.result-text { margin:0; color:var(--gray-700); line-height:1.6; }
+.note-box { margin-top:2rem; padding:1.4rem 1.5rem; border-left:4px solid #ffc107; background:#fff8dc; border-radius:var(--radius); color:#8b6914; font-size:0.95rem; line-height:1.7; }
+@media(max-width:860px){ .form-row{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a>
+    <a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calculators.html">Our Calculators</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="calculator-page">
+  <section class="section reveal">
+    <div class="calculator-panel">
+      <div class="panel-header">
+        <h1>NSCLC TNM Staging</h1>
+        <p>AJCC 9th edition stage grouping for non-small cell lung cancer. Enter T, N, and M categories to see the corresponding clinical stage.</p>
+      </div>
+      <div class="panel-body">
+        <div class="stage-grid">
+          <div class="card">
+            <h3>T Category</h3>
+            <p>T1a / T1b / T1c / T2a / T2b / T3 / T4</p>
+          </div>
+          <div class="card">
+            <h3>N Category</h3>
+            <p>N0 / N1 / N2 / N3</p>
+          </div>
+          <div class="card">
+            <h3>M Category</h3>
+            <p>M0 / M1a / M1b / M1c</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="t-category">T Category</label>
+            <select id="t-category">
+              <option value="T1a">T1a</option>
+              <option value="T1b">T1b</option>
+              <option value="T1c">T1c</option>
+              <option value="T2a">T2a</option>
+              <option value="T2b">T2b</option>
+              <option value="T3">T3</option>
+              <option value="T4">T4</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="n-category">N Category</label>
+            <select id="n-category">
+              <option value="N0">N0</option>
+              <option value="N1">N1</option>
+              <option value="N2">N2</option>
+              <option value="N3">N3</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="m-category">M Category</label>
+            <select id="m-category">
+              <option value="M0">M0</option>
+              <option value="M1a">M1a</option>
+              <option value="M1b">M1b</option>
+              <option value="M1c">M1c</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="calculate-btn" id="calculate">Calculate Stage</button>
+          <button class="clear-btn" id="clear">Reset</button>
+        </div>
+
+        <div class="result-box" id="result-card">
+          <h2 class="result-title">Stage Group</h2>
+          <p class="result-text" id="result-text">Select T, N, and M categories then press Calculate Stage.</p>
+        </div>
+
+        <div class="note-box">
+          This tool is intended for educational reference only and follows simplified AJCC 9th edition NSCLC stage grouping. Always confirm final staging with multidisciplinary review and institutional guidelines.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, training the next generation of respiratory physicians in Jordan.</p>
+        <p style="font-size:0.75rem; color:#666; margin-top:0.5rem; line-height:1.4; font-style:italic;">This website is a personal initiative by the Pulmonary Medicine section and does not represent official KHCC administration views.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="calculators.html">Our Calculators</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Pulmonary.khcc@gmail.com">Pulmonary.khcc@gmail.com</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="https://www.facebook.com/profile.php?id=61574317923329"><i class="fab fa-facebook-f"></i></a><a class="social-link" href="https://www.instagram.com/pulmonary.khcc/"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://www.linkedin.com/in/pulmonary-fellowship-program-khcc-a0a568401/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BqMFjgmxoQZKoJGxGVgVBRQ%3D%3D"><i class="fab fa-linkedin-in"></i></a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const tCategory = document.getElementById('t-category');
+const nCategory = document.getElementById('n-category');
+const mCategory = document.getElementById('m-category');
+const resultText = document.getElementById('result-text');
+const calculateBtn = document.getElementById('calculate');
+const clearBtn = document.getElementById('clear');
+
+function getStageGroup(t, n, m) {
+  if (m !== 'M0') {
+    return m === 'M1a' ? 'Stage IVA' : 'Stage IVB';
+  }
+  if (n === 'N3') {
+    return 'Stage IIIC';
+  }
+  if (n === 'N2') {
+    if (t === 'T4' || t === 'T3') {
+      return 'Stage IIIB';
+    }
+    return 'Stage IIIA';
+  }
+  if (n === 'N1') {
+    if (t === 'T4') {
+      return 'Stage IIIB';
+    }
+    if (t === 'T3') {
+      return 'Stage IIIA';
+    }
+    return 'Stage IIB';
+  }
+  if (n === 'N0') {
+    switch (t) {
+      case 'T1a': return 'Stage IA1';
+      case 'T1b': return 'Stage IA2';
+      case 'T1c': return 'Stage IA3';
+      case 'T2a': return 'Stage IB';
+      case 'T2b': return 'Stage IIA';
+      case 'T3': return 'Stage IIB';
+      case 'T4': return 'Stage IIIA';
+    }
+  }
+  return 'Stage grouping unavailable for this combination';
+}
+
+function getStageDescription(stage) {
+  const descriptions = {
+    'Stage IA1': 'Small, early tumor with no nodal or distant spread.',
+    'Stage IA2': 'Early primary tumor with no regional lymph node involvement.',
+    'Stage IA3': 'Larger early tumor still confined to the lung without nodal spread.',
+    'Stage IB': 'Moderate primary tumor size without nodal or distant metastasis.',
+    'Stage IIA': 'Larger tumor without nodal spread, but still localized.',
+    'Stage IIB': 'Primary tumor with limited nodal involvement or larger tumor size.',
+    'Stage IIIA': 'Locally advanced disease with ipsilateral nodal involvement or T4 tumor without distant spread.',
+    'Stage IIIB': 'More advanced regional spread including greater nodal disease or T4 tumor with N1.',
+    'Stage IIIC': 'Extensive regional nodal disease with no distant metastasis.',
+    'Stage IVA': 'Distant spread limited to one site or pleural/pericardial metastasis.',
+    'Stage IVB': 'Widespread distant metastasis beyond a single site.'
+  };
+  return descriptions[stage] || 'Review the AJCC 9th edition criteria; this tool is a simplified reference.';
+}
+
+function updateResult() {
+  const t = tCategory.value;
+  const n = nCategory.value;
+  const m = mCategory.value;
+  const stage = getStageGroup(t, n, m);
+  const desc = getStageDescription(stage);
+  resultText.innerHTML = `<strong>${stage}</strong><br>${desc}`;
+}
+
+calculateBtn.addEventListener('click', () => updateResult());
+clearBtn.addEventListener('click', () => {
+  tCategory.value = 'T1a';
+  nCategory.value = 'N0';
+  mCategory.value = 'M0';
+  resultText.textContent = 'Select T, N, and M categories then press Calculate Stage.';
+});
+</script>
+<script src="shared.js"></script>
+</body>
+</html>
