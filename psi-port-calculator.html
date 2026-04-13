@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PSI/PORT Score — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="1000397994.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.calculator-page { max-width:980px; margin:3rem auto; }
+.calculator-panel { background:white; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; }
+.panel-header { padding:2rem; background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%); color:white; }
+.panel-header h1 { margin:0 0 0.5rem; font-family:'Playfair Display',serif; font-size:2.2rem; }
+.panel-header p { margin:0; color:rgba(255,255,255,0.9); line-height:1.7; }
+.panel-body { padding:2rem; }
+.grid-two { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+.form-group { display:flex; flex-direction:column; gap:0.5rem; }
+.form-group label { font-size:0.95rem; font-weight:700; color:var(--navy); }
+.form-group input, .form-group select { width:100%; padding:12px 14px; border:1.5px solid var(--gray-200); border-radius:12px; background:white; color:var(--gray-800); font-size:0.95rem; }
+.form-group input[type="checkbox"] { width:auto; margin-right:0.5rem; }
+.actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:1.5rem; }
+button.calculate-btn, button.clear-btn { border:none; border-radius:12px; padding:0.95rem 1.5rem; font-weight:700; cursor:pointer; transition:all 0.25s; }
+button.calculate-btn { background:var(--navy); color:white; }
+button.calculate-btn:hover { background:var(--blue); }
+button.clear-btn { background:var(--gray-100); color:var(--navy); }
+.result-box { background:linear-gradient(135deg,#eef7ff 0%,#f6fcff 100%); border:1px solid #c7e2ff; border-radius:var(--radius); padding:1.75rem; }
+.result-title { margin:0 0 0.75rem; font-size:1.15rem; color:var(--navy); }
+.result-text { margin:0; color:var(--gray-700); line-height:1.7; }
+.note-box { margin-top:2rem; padding:1.4rem 1.5rem; border-left:4px solid #ffc107; background:#fff8dc; border-radius:var(--radius); color:#8b6914; font-size:0.95rem; line-height:1.7; }
+@media(max-width:840px){ .grid-two{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a>
+    <a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calculators.html">Our Calculators</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="calculator-page">
+  <section class="section reveal">
+    <div class="calculator-panel">
+      <div class="panel-header">
+        <h1>PSI / PORT Score</h1>
+        <p>Calculate pneumonia severity index to support inpatient versus outpatient management decisions for community-acquired pneumonia.</p>
+      </div>
+      <div class="panel-body">
+        <form id="psi-form">
+          <div class="grid-two">
+            <div class="form-group">
+              <label for="age">Age (years)</label>
+              <input type="number" id="age" min="0" placeholder="e.g. 55" required>
+            </div>
+            <div class="form-group">
+              <label>Sex</label>
+              <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-two">
+            <div class="form-group">
+              <label>Comorbidities</label>
+              <select id="comorbidity">
+                <option value="none">None</option>
+                <option value="neoplasm">Neoplasm</option>
+                <option value="liver">Liver disease</option>
+                <option value="congestive">Congestive heart failure</option>
+                <option value="cerebro">Cerebrovascular disease</option>
+                <option value="renal">Renal disease</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Physical exam</label>
+              <select id="exam">
+                <option value="none">No abnormality</option>
+                <option value="altered">Altered mental status</option>
+                <option value="pulse">Pulse ≥ 125</option>
+                <option value="rr">RR ≥ 30</option>
+                <option value="sbp">SBP < 90 mmHg</option>
+                <option value="temp">Temperature < 35°C or ≥ 40°C</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-two">
+            <div class="form-group">
+              <label for="ph">Arterial pH</label>
+              <input type="number" step="0.01" id="ph" placeholder="e.g. 7.35">
+            </div>
+            <div class="form-group">
+              <label for="bun">BUN (mg/dL)</label>
+              <input type="number" id="bun" placeholder="e.g. 18">
+            </div>
+          </div>
+          <div class="grid-two">
+            <div class="form-group">
+              <label for="na">Na⁺ (mmol/L)</label>
+              <input type="number" id="na" placeholder="e.g. 140">
+            </div>
+            <div class="form-group">
+              <label for="glucose">Glucose (mg/dL)</label>
+              <input type="number" id="glucose" placeholder="e.g. 120">
+            </div>
+          </div>
+          <div class="grid-two">
+            <div class="form-group">
+              <label for="hematocrit">Hematocrit (%)</label>
+              <input type="number" id="hematocrit" placeholder="e.g. 40">
+            </div>
+            <div class="form-group">
+              <label for="pao2">PaO2 (mmHg)</label>
+              <input type="number" id="pao2" placeholder="e.g. 80">
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="calculate-btn" id="calculate">Calculate Score</button>
+            <button type="button" class="clear-btn" id="clear">Reset</button>
+          </div>
+        </form>
+
+        <div class="result-box">
+          <h2 class="result-title">PSI Category</h2>
+          <p class="result-text" id="result-text">Complete the form and press Calculate Score.</p>
+        </div>
+
+        <div class="note-box">
+          This tool is intended for clinical reference and follows the PSI/PORT risk stratification model. Individual patient management should be guided by comprehensive evaluation and local protocols.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, training the next generation of respiratory physicians in Jordan.</p>
+        <p style="font-size:0.75rem; color:#666; margin-top:0.5rem; line-height:1.4; font-style:italic;">This website is a personal initiative by the Pulmonary Medicine section and does not represent official KHCC administration views.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="calculators.html">Our Calculators</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Pulmonary.khcc@gmail.com">Pulmonary.khcc@gmail.com</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="https://www.facebook.com/profile.php?id=61574317923329"><i class="fab fa-facebook-f"></i></a><a class="social-link" href="https://www.instagram.com/pulmonary.khcc/"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://www.linkedin.com/in/pulmonary-fellowship-program-khcc-a0a568401/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BqMFjgmxoQZKoJGxGVgVBRQ%3D%3D"><i class="fab fa-linkedin-in"></i></a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ageField = document.getElementById('age');
+const sexField = document.getElementById('sex');
+const comorbidityField = document.getElementById('comorbidity');
+const examField = document.getElementById('exam');
+const phField = document.getElementById('ph');
+const bunField = document.getElementById('bun');
+const naField = document.getElementById('na');
+const glucoseField = document.getElementById('glucose');
+const hematocritField = document.getElementById('hematocrit');
+const pao2Field = document.getElementById('pao2');
+const resultText = document.getElementById('result-text');
+const calculateBtn = document.getElementById('calculate');
+const clearBtn = document.getElementById('clear');
+
+function calculatePSIScore() {
+  let score = 0;
+  const age = Number(ageField.value) || 0;
+  score += age;
+
+  if (sexField.value === 'female') score -= 10;
+
+  switch (comorbidityField.value) {
+    case 'neoplasm': score += 30; break;
+    case 'liver': score += 20; break;
+    case 'congestive': score += 10; break;
+    case 'cerebro': score += 10; break;
+    case 'renal': score += 20; break;
+  }
+
+  switch (examField.value) {
+    case 'altered': score += 20; break;
+    case 'pulse': score += 20; break;
+    case 'rr': score += 20; break;
+    case 'sbp': score += 20; break;
+    case 'temp': score += 15; break;
+  }
+
+  const ph = Number(phField.value);
+  const bun = Number(bunField.value);
+  const na = Number(naField.value);
+  const glucose = Number(glucoseField.value);
+  const hematocrit = Number(hematocritField.value);
+  const pao2 = Number(pao2Field.value);
+
+  if (ph && ph < 7.35) score += 30;
+  if (bun && bun >= 30) score += 20;
+  if (na && na < 130) score += 20;
+  if (glucose && glucose >= 250) score += 10;
+  if (hematocrit && hematocrit < 30) score += 10;
+  if (pao2 && pao2 < 60) score += 10;
+
+  return score;
+}
+
+function getPSICategory(score) {
+  if (score <= 70) return { category: 'I', risk: 'Low risk. Outpatient management usually appropriate.', recommendation: 'Consider outpatient treatment with close follow-up.' };
+  if (score <= 90) return { category: 'II', risk: 'Low risk. Often suitable for outpatient or brief observation.', recommendation: 'Consider admission only if other factors justify hospital care.' };
+  if (score <= 130) return { category: 'III', risk: 'Moderate risk. Consider short-term hospitalization.', recommendation: 'Hospitalize patients for observation and treatment.' };
+  if (score <= 150) return { category: 'IV', risk: 'High risk. Inpatient treatment recommended.', recommendation: 'Admit to the ward with close monitoring and early antibiotic therapy.' };
+  return { category: 'V', risk: 'Very high risk. Consider ICU admission and aggressive management.', recommendation: 'Admit to ICU or high-dependency setting; emergency evaluation and therapy required.' };
+}
+
+calculateBtn.addEventListener('click', () => {
+  const score = calculatePSIScore();
+  const result = getPSICategory(score);
+  resultText.innerHTML = `<strong>PSI Score: ${score}</strong><br>Category ${result.category}: ${result.risk}<br><br><strong>Suggested action:</strong> ${result.recommendation}`;
+});
+
+clearBtn.addEventListener('click', () => {
+  ageField.value = '';
+  sexField.value = 'male';
+  comorbidityField.value = 'none';
+  examField.value = 'none';
+  phField.value = '';
+  bunField.value = '';
+  naField.value = '';
+  glucoseField.value = '';
+  hematocritField.value = '';
+  pao2Field.value = '';
+  resultText.textContent = 'Complete the form and press Calculate Score.';
+});
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

@@ -12,7 +12,19 @@
 .calculator-header h1 { margin:0 0 0.5rem 0; font-family:'Playfair Display',serif; font-size:2rem; }
 .calculator-header p { margin:0; opacity:0.95; }
 .calculator-iframe-container { padding:2rem; }
-.calculator-iframe { width:100%; border:none; border-radius:var(--radius-lg); box-shadow:var(--shadow-md); height:1550px; }
+.calculator-form { display:flex; flex-direction:column; gap:1.5rem; }
+.form-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+.form-group { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:14px; padding:1rem; }
+.form-group label { display:flex; align-items:center; gap:0.75rem; color:var(--navy); font-weight:600; font-size:0.95rem; cursor:pointer; }
+.form-group input { width:auto; accent-color:var(--blue); }
+.result-box { background:linear-gradient(135deg,#eef7ff 0%,#f6fcff 100%); border:1px solid #c7e2ff; border-radius:var(--radius); padding:1.75rem; margin-top:1.5rem; }
+.result-title { margin:0 0 0.75rem; font-size:1.15rem; color:var(--navy); }
+.result-text { margin:0; color:var(--gray-700); line-height:1.7; }
+.actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-top:0.5rem; }
+.calculate-btn, .clear-btn { border:none; border-radius:12px; padding:0.95rem 1.5rem; font-weight:700; cursor:pointer; transition:all 0.25s; }
+.calculate-btn { background:var(--navy); color:white; }
+.calculate-btn:hover { background:var(--blue); }
+.clear-btn { background:var(--gray-100); color:var(--navy); }
 .back-button { padding:1.5rem 2rem; text-align:center; border-top:1px solid var(--gray-200); }
 .back-button a { color:var(--blue); text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem; }
 .back-button a:hover { text-decoration:underline; }
@@ -57,7 +69,41 @@
       </div>
       
       <div class="calculator-iframe-container">
-        <iframe class="calculator-iframe" src="https://pe-risk-khcc.base44.app" title="PE Risk Calculator"></iframe>
+        <form id="pe-form" class="calculator-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label><input type="checkbox" id="dvt"> Clinical signs and symptoms of DVT</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="likely"> Pulmonary embolism is the most likely diagnosis</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="hr"> Heart rate &gt; 100 bpm</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="immobilization"> Immobilization or surgery in the past 4 weeks</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="history"> History of DVT or PE</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="hemoptysis"> Hemoptysis</label>
+            </div>
+            <div class="form-group">
+              <label><input type="checkbox" id="cancer"> Active malignancy</label>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="calculate-btn" id="calculate-pe">Calculate Risk</button>
+            <button type="button" class="clear-btn" id="reset-pe">Reset</button>
+          </div>
+        </form>
+
+        <div class="result-box" id="pe-result">
+          <h2 class="result-title">Risk Assessment</h2>
+          <p class="result-text" id="pe-result-text">Complete the form and press Calculate Risk.</p>
+        </div>
       </div>
       
       <div class="back-button">
@@ -101,6 +147,64 @@
     </div>
   </div>
 </footer>
+<script>
+const dvtCheck = document.getElementById('dvt');
+const likelyCheck = document.getElementById('likely');
+const hrCheck = document.getElementById('hr');
+const immobilizationCheck = document.getElementById('immobilization');
+const historyCheck = document.getElementById('history');
+const hemoptysisCheck = document.getElementById('hemoptysis');
+const cancerCheck = document.getElementById('cancer');
+const resultText = document.getElementById('pe-result-text');
+const calculateBtn = document.getElementById('calculate-pe');
+const resetBtn = document.getElementById('reset-pe');
+
+function calculatePEScore() {
+  let score = 0;
+  if (dvtCheck.checked) score += 3;
+  if (likelyCheck.checked) score += 3;
+  if (hrCheck.checked) score += 1.5;
+  if (immobilizationCheck.checked) score += 1.5;
+  if (historyCheck.checked) score += 1.5;
+  if (hemoptysisCheck.checked) score += 1;
+  if (cancerCheck.checked) score += 1;
+
+  return score;
+}
+
+function getPEInterpretation(score) {
+  const rounded = Math.round(score * 10) / 10;
+  if (score > 4) {
+    return {
+      title: `PE likely — score ${rounded}`,
+      guidance: 'Pulmonary embolism is likely. Consider urgent imaging (CT pulmonary angiography) and early anticoagulation as clinically appropriate.',
+      action: 'Evaluate for hospital admission and initiate diagnostic work-up.'
+    };
+  }
+  return {
+    title: `PE unlikely — score ${rounded}`,
+    guidance: 'Pulmonary embolism is less likely. Consider D-dimer testing if clinically appropriate and assess for alternative diagnoses.',
+    action: 'Manage with outpatient follow-up or further evaluation based on clinical context.'
+  };
+}
+
+calculateBtn.addEventListener('click', () => {
+  const score = calculatePEScore();
+  const result = getPEInterpretation(score);
+  resultText.innerHTML = `<strong>${result.title}</strong><br>${result.guidance}<br><br><strong>Suggested action:</strong> ${result.action}`;
+});
+
+resetBtn.addEventListener('click', () => {
+  dvtCheck.checked = false;
+  likelyCheck.checked = false;
+  hrCheck.checked = false;
+  immobilizationCheck.checked = false;
+  historyCheck.checked = false;
+  hemoptysisCheck.checked = false;
+  cancerCheck.checked = false;
+  resultText.textContent = 'Complete the form and press Calculate Risk.';
+});
+</script>
 <script src="shared.js"></script>
 </body>
 </html>
