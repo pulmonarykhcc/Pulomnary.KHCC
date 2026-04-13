@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>IDSA/ATS Criteria — KHCC Pulmonary Fellowship</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="1000397994.png" type="image/png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+.calculator-page { max-width:960px; margin:3rem auto; }
+.calculator-panel { background:white; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); overflow:hidden; }
+.panel-header { padding:2rem; background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%); color:white; }
+.panel-header h1 { margin:0 0 0.5rem; font-family:'Playfair Display',serif; font-size:2.2rem; }
+.panel-header p { margin:0; color:rgba(255,255,255,0.9); line-height:1.7; }
+.panel-body { padding:2rem; }
+.criteria-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+.criteria-card { background:var(--gray-50); border:1px solid var(--gray-200); border-radius:var(--radius); padding:1.25rem; }
+.criteria-card h3 { margin:0 0 0.75rem; font-size:1rem; color:var(--navy); }
+.criteria-card label { display:flex; align-items:flex-start; gap:0.75rem; margin-bottom:0.85rem; cursor:pointer; font-size:0.95rem; color:var(--gray-800); }
+.criteria-card input { margin-top:0.2rem; accent-color:var(--blue); }
+.actions { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-bottom:1.5rem; }
+button.calculate-btn, button.clear-btn { border:none; border-radius:12px; padding:0.95rem 1.5rem; font-weight:700; cursor:pointer; transition:all 0.25s; }
+button.calculate-btn { background:var(--navy); color:white; }
+button.calculate-btn:hover { background:var(--blue); }
+button.clear-btn { background:var(--gray-100); color:var(--navy); }
+.result-box { background:linear-gradient(135deg,#eef7ff 0%,#f6fcff 100%); border:1px solid #c7e2ff; border-radius:var(--radius); padding:1.75rem; }
+.result-title { margin:0 0 0.75rem; font-size:1.15rem; color:var(--navy); }
+.result-text { margin:0; color:var(--gray-700); line-height:1.7; }
+.note-box { margin-top:2rem; padding:1.4rem 1.5rem; border-left:4px solid #ffc107; background:#fff8dc; border-radius:var(--radius); color:#8b6914; font-size:0.95rem; line-height:1.7; }
+@media(max-width:760px){ .criteria-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a class="nav-brand" href="index.html">
+    <img src="1000397994.png" alt="KHCC Logo" onerror="this.style.display='none'">
+    <div class="nav-brand-text"><div class="t1">KHCC Pulmonary</div><div class="t2">Fellowship Program</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="curriculum.html">Curriculum</a>
+    <a href="didactics.html">Didactics</a>
+    <a href="interventions.html">Interventions</a>
+    <a href="faculty.html">Faculty</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="calculators.html">Our Calculators</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-apply">Apply Now</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="calculator-page">
+  <section class="section reveal">
+    <div class="calculator-panel">
+      <div class="panel-header">
+        <h1>IDSA/ATS Criteria</h1>
+        <p>Apply IDSA/ATS severe community-acquired pneumonia criteria for ICU triage. Select major and minor criteria to determine hospital admission need.</p>
+      </div>
+      <div class="panel-body">
+        <div class="criteria-grid">
+          <div class="criteria-card">
+            <h3>Major Criteria</h3>
+            <label><input type="checkbox" id="major-vent" value="ventilation"> Invasive mechanical ventilation</label>
+            <label><input type="checkbox" id="major-sepsis" value="sepsis"> Septic shock requiring vasopressors</label>
+          </div>
+          <div class="criteria-card">
+            <h3>Minor Criteria</h3>
+            <label><input type="checkbox" class="minor" value="rr"> RR ≥ 30 breaths/min</label>
+            <label><input type="checkbox" class="minor" value="pao2"> PaO2/FiO2 ≤ 250</label>
+            <label><input type="checkbox" class="minor" value="multilobar"> Multilobar infiltrates</label>
+            <label><input type="checkbox" class="minor" value="confusion"> Confusion/disorientation</label>
+            <label><input type="checkbox" class="minor" value="uremia"> Uremia (BUN ≥ 20 mg/dL)</label>
+            <label><input type="checkbox" class="minor" value="leukopenia"> Leukopenia (WBC < 4,000/mm³)</label>
+            <label><input type="checkbox" class="minor" value="thrombocytopenia"> Thrombocytopenia (<100,000/mm³)</label>
+            <label><input type="checkbox" class="minor" value="hypothermia"> Hypothermia (<36°C)</label>
+            <label><input type="checkbox" class="minor" value="hypotension"> Hypotension requiring aggressive fluid resuscitation</label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="calculate-btn" id="calculate">Evaluate</button>
+          <button class="clear-btn" id="clear">Reset</button>
+        </div>
+
+        <div class="result-box">
+          <h2 class="result-title">Assessment Result</h2>
+          <p class="result-text" id="result-text">Select the criteria present and press Evaluate.</p>
+        </div>
+
+        <div class="note-box">
+          This tool is a simplified clinical aid based on IDSA/ATS 2007 severe CAP criteria. Use it as support for clinical decision-making and confirm with institutional protocols and multidisciplinary review.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="1000397994.png" alt="KHCC Pulmonary" onerror="this.style.display='none'">
+        <p>Pulmonary Medicine Fellowship Program at King Hussein Cancer Center, training the next generation of respiratory physicians in Jordan.</p>
+        <p style="font-size:0.75rem; color:#666; margin-top:0.5rem; line-height:1.4; font-style:italic;">This website is a personal initiative by the Pulmonary Medicine section and does not represent official KHCC administration views.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="curriculum.html">Curriculum</a>
+        <a href="didactics.html">Didactics</a><a href="interventions.html">Interventions</a>
+        <a href="faculty.html">Faculty</a><a href="gallery.html">Gallery</a><a href="calculators.html">Our Calculators</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:Pulmonary.khcc@gmail.com">Pulmonary.khcc@gmail.com</a>
+        <a href="#">King Hussein Cancer Center</a>
+        <a href="#">Al-Jubeiha, Amman 11941, Jordan</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KHCC Pulmonary Medicine Fellowship · Amman, Jordan</p>
+      <div class="social-links"><a class="social-link" href="https://www.facebook.com/profile.php?id=61574317923329"><i class="fab fa-facebook-f"></i></a><a class="social-link" href="https://www.instagram.com/pulmonary.khcc/"><i class="fab fa-instagram"></i></a><a class="social-link" href="https://www.linkedin.com/in/pulmonary-fellowship-program-khcc-a0a568401/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BqMFjgmxoQZKoJGxGVgVBRQ%3D%3D"><i class="fab fa-linkedin-in"></i></a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const majorVent = document.getElementById('major-vent');
+const majorSepsis = document.getElementById('major-sepsis');
+const minorCriteria = Array.from(document.querySelectorAll('.minor'));
+const resultText = document.getElementById('result-text');
+const calculateBtn = document.getElementById('calculate');
+const clearBtn = document.getElementById('clear');
+
+function evaluateIDSAATS() {
+  const majorCount = [majorVent.checked, majorSepsis.checked].filter(Boolean).length;
+  const minorCount = minorCriteria.filter(item => item.checked).length;
+
+  if (majorCount >= 1) {
+    return {
+      title: 'Severe CAP — ICU Admission Recommended',
+      details: 'Presence of one major IDSA/ATS criterion indicates severe community-acquired pneumonia and generally requires ICU-level care.',
+      recommendation: 'Admit to ICU and begin aggressive resuscitation, respiratory support, and early broad-spectrum antibiotics.'
+    };
+  }
+
+  if (minorCount >= 3) {
+    return {
+      title: 'Severe CAP — ICU Considered',
+      details: `Three or more minor criteria are present (${minorCount}). Severe CAP should be strongly considered for ICU admission or high-dependency monitoring.`,
+      recommendation: 'Consider ICU or step-down unit, close monitoring, and prompt antimicrobial therapy.'
+    };
+  }
+
+  return {
+    title: 'Non-Severe CAP',
+    details: `Fewer than 3 minor criteria and no major criteria are present (${minorCount}). This suggests lower severity, but clinical judgment remains essential.`,
+    recommendation: 'Manage on the ward or outpatient setting depending on comorbidities and social support.'
+  };
+}
+
+calculateBtn.addEventListener('click', () => {
+  const result = evaluateIDSAATS();
+  resultText.innerHTML = `<strong>${result.title}</strong><br>${result.details}<br><br><strong>Recommended action:</strong> ${result.recommendation}`;
+});
+
+clearBtn.addEventListener('click', () => {
+  majorVent.checked = false;
+  majorSepsis.checked = false;
+  minorCriteria.forEach(item => item.checked = false);
+  resultText.textContent = 'Select the criteria present and press Evaluate.';
+});
+</script>
+<script src="shared.js"></script>
+</body>
+</html>
